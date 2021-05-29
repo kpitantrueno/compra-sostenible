@@ -5,6 +5,8 @@ import ItemShoopingCart from '../itemShopingCart/itemShopingCart'
 
 export default function ShoopingCart(props) {
 
+    console.log(props)
+
     return (
 
         <div className='container'>

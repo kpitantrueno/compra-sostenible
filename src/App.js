@@ -12,15 +12,29 @@ function App() {
   const [state, setState] = useState([])
 
 
+  const [stateShopingCart, setStateShopingCart] = useState([])
+
+
+  function addShopingCart(product) {
+
+
+  }
+
 
   function addProduct(product) {
 
-      if(state.indexOf(product) == -1){
+   
+    
+    setState(state.concat([JSON.stringify(product[0])]))
+    
 
-        setState(state.concat([product]))
+    /*
+    if (state.indexOf(product.name) == -1) {
 
-      }
+      setState(state.concat([product.name]))
 
+    }
+*/
   }
 
 
@@ -35,7 +49,7 @@ function App() {
           <ListProducts changeState={addProduct} />
         </div>
         <div className="shopingcart col-8">
-          <Shooping cosas={state} />
+          <Shooping cosas={state} purchase={setStateShopingCart} />
         </div>
         <div className="resume col-2">
         </div>
