@@ -3,13 +3,17 @@ import { useState } from 'react'
 
 export default function ItemShopingCart(props) {
 
-   const [state, setState] = useState([0])
-   let product = JSON.parse(props.productData)
+   const [state, setState] = useState(0)
+  
+   let json = JSON.parse(props.productData)
 
+   
 
    function sum(){
 
-    setState(parseInt(state,10)+1)
+    setState(state+1)
+
+  //  props.addShopingCart([product,state+1])
 
    }
 
@@ -19,6 +23,9 @@ export default function ItemShopingCart(props) {
 
     setState(parseInt(state,10)-1)
 
+   // props.addShopingCart([{name:product,count:state-1}])
+
+
    }
 
 
@@ -27,10 +34,11 @@ export default function ItemShopingCart(props) {
         <div className="card" >
             <img className="card-img-top"  />
             <div className ="card-body">
-            <h5 className ="card-title">{product.name}</h5>
+            <h5 className ="card-title">{json.name}</h5>
              {state}
-            <button onClick={sum}>+</button>
-            <button onClick={subt}>-</button>
+            <button >+</button>
+            <button >-</button>
+            <button onClick={ e => {props.deleteItem(json.name)}} >delete</button>
 
             </div>
         </div>

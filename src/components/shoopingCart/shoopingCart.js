@@ -1,11 +1,11 @@
 import React from 'react'
 import ItemShoopingCart from '../itemShopingCart/itemShopingCart'
-
+import { useState } from 'react'
 
 
 export default function ShoopingCart(props) {
 
-    console.log(props)
+   
 
     return (
 
@@ -13,7 +13,7 @@ export default function ShoopingCart(props) {
             <div className='row'>
                 {
 
-                    props.cosas.map(product => <div  className='col-4'><ItemShoopingCart productData={product} /></div> )
+                    props.cosas.map(product => <div  className='col-4'><ItemShoopingCart productData={product} addShopingCart={props.purchase} deleteItem={props.deleteItem} /></div> )
                 }
 
             </div>
@@ -23,24 +23,7 @@ export default function ShoopingCart(props) {
 
     )
 
-    /*
-        return (
-    
-            <div className='listProducts'>
-    
-                {
-                    props.cosas.map(product => <button >{product}</button>)
-                }
-    
-            </div>
-    
-        )
-    */
-
-
-
-
-
+   
 
 
 }
