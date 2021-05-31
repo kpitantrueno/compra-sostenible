@@ -6,26 +6,29 @@ import { useState } from 'react'
 
 export default function Resume(props) {
 
-    const [state, setState] = useState([])
 
-  //  setState(props.data)
+  console.log(props.data)
 
+  let json = []
 
-  
+  props.data.forEach(element => {
 
-    return (    
+    json = json.concat([JSON.parse(element)])
 
-        <div className=''>
-
-            {
-              props.data.map(data => <button className='col-12'>{data}</button>)
-            }
-
-        </div>
-
-    )
+  });
 
 
+  return (
+
+    <div className=''>
+
+      {
+        json.map(data => <button className='col-12'>{data.name}{data.count}{data.CO2level}</button>)
+      }
+
+    </div>
+
+  )
 
 
 }
