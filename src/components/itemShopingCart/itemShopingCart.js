@@ -13,7 +13,7 @@ export default function ItemShopingCart(props) {
 
     setState(state+1)
 
-  //  props.addShopingCart([product,state+1])
+    props.addShopingCart({name:json.name,count:state+1})
 
    }
 
@@ -36,7 +36,7 @@ export default function ItemShopingCart(props) {
             <div className ="card-body">
             <h5 className ="card-title">{json.name}</h5>
              {state}
-            <button >+</button>
+            <button onClick={sum}>+</button>
             <button >-</button>
             <button onClick={ e => {props.deleteItem(json.name)}} >delete</button>
 

@@ -19,9 +19,89 @@ export default function App() {
 
 
   function addShopingCart(product) {
+    
+    
+    
+    
+    
+    state.forEach((e, i) => {
+      
+      let json = JSON.parse(e) 
+      
+      if(json.name == product.name){
+        
+        console.log(product)
+        //tengo el registro actualizado
+        json.count = product.count
+
+        //creo un nuevo array sin el registro viejo
+      
+        let auxArr = state
+
+        auxArr.splice(i,1,JSON.stringify(json))
+
+        setState([])
+
+        //el array ya no tiene el viejo valor
+        setState(auxArr)
 
 
 
+
+        setState(state.concat())
+
+        //le concateno el nuevo valor
+      //  setState(state.concat([JSON.stringify(json)]))
+
+
+
+
+        /*
+       
+        console.log('ASI QUEDA EL SPLICE:---' + auxArr)
+
+        setState([])
+
+        console.log('ASI QUEDA STATE DESPUES DE BORRAR:---' + state)
+
+
+        setState(auxArr)
+
+        setState(state.concat())
+*/
+      }
+
+
+      })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
 
     if (!stateShopingCart.includes(product[0])) {
 
@@ -38,6 +118,7 @@ export default function App() {
 
     }
 
+    */
     // !stateShopingCart.includes(product[0])
 
 
@@ -253,8 +334,6 @@ export default function App() {
   function deleteItem(nombre){
    
     state.forEach((e, i) => {
-
-     
 
       let json = JSON.parse(e) 
 

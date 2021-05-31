@@ -6,7 +6,7 @@ import { useState } from 'react'
 export default function ShoopingCart(props) {
 
    
-    console.log(props.cosas + 'estos son los props de shoping')
+  //  console.log(props.cosas + 'estos son los props de shoping')
 
     return (
 
