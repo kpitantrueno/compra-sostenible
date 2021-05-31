@@ -253,24 +253,35 @@ export default function App() {
   function deleteItem(nombre){
    
     state.forEach((e, i) => {
-      
-      let json = JSON.parse(e)
-      
-      if(json.name == nombre){
-        
-        console.log(nombre+i)
+
      
+
+      let json = JSON.parse(e) 
+
+
+      if(json.name == nombre){
+
         let auxArr = state
        
         auxArr.splice(i,1)
        
+        console.log('ASI QUEDA EL SPLICE:---' + auxArr)
+
         setState([])
 
-        setState(state.concat(auxArr))
+        console.log('ASI QUEDA STATE DESPUES DE BORRAR:---' + state)
+
+
+        setState(auxArr)
+
+        setState(state.concat())
 
       }
 
+
       })
+
+
 
   }
 
@@ -292,7 +303,9 @@ export default function App() {
           <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem}/>
         </div>
         <div className="resume col-2">
+        
           <Resume data={stateShopingCart} />
+        
           <p>{state}</p>
         </div>
       </div>

@@ -6,8 +6,10 @@ import { useState } from 'react'
 export default function ShoopingCart(props) {
 
    
+    console.log(props.cosas + 'estos son los props de shoping')
 
     return (
+
 
         <div className='container'>
             <div className='row'>
