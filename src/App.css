@@ -5,19 +5,19 @@
 .listproducts{
 
 background-color: #282c34;
-height: 100vh;
+height: 70vh;
 }
 
 .shopingcart{
 
   background-color: cornflowerblue;
-  height: 100vh;
+  height: 70vh;
 }
 
 .resume{
 
 background-color: rgb(190, 220, 20);
-height: 100vh;
+height: 30vh;
 }
 
 .App-logo {

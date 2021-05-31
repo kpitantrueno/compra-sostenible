@@ -20,11 +20,35 @@ export default function Resume(props) {
 
   return (
 
-    <div className=''>
+    <div className='container'>
+
+
+      <div className="progress">
+        <div className="progress-bar" role="progressbar"></div>
+        <div className="progress-bar bg-success" role="progressbar"></div>
+        <div className="progress-bar bg-info" role="progressbar" ></div>
+      </div>
+
+
 
       {
-        json.map(data => <button className='col-12'>{data.name}{data.count}{data.CO2level}</button>)
+        json.map(data => {
+
+          return (
+            <div>
+              <di className='row'></di>
+              <button className='col-3'>{data.name}{data.count}{data.CO2level}</button>
+            </div>
+
+          )
+
+        })
+
       }
+
+
+
+
 
     </div>
 

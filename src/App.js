@@ -130,13 +130,17 @@ export default function App() {
         <div className="listproducts col-2">
           <ListProducts changeState={addProduct} />
         </div>
-        <div className="shopingcart col-8">
+        <div className="shopingcart col-10">
           <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} />
         </div>
-        <div className="resume col-2">
-          <Resume data={state} />
-        </div>
       </div>
+
+      <div className='row'>
+      <div className="resume col-12">
+        <Resume data={state} />
+      </div>
+      </div>
+
     </div>
   );
 }
