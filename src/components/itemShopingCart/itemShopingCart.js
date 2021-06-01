@@ -40,7 +40,7 @@ export default function ItemShopingCart(props) {
             <img className="card-img-top"  />
             <div className ="card-body">
             <h5 className ="card-title">{json.name}</h5>
-             {state}
+             {json.count}
             <button onClick={sum}>+</button>
             <button onClick={subt}>-</button>
             <button onClick={ e => {props.deleteItem(json.name)}} >delete</button>
