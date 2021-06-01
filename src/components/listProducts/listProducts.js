@@ -1,10 +1,15 @@
 import { div } from 'prelude-ls'
 import React from 'react'
+import { useState, useEffect } from 'react'
 
 
 
 
 export default function ListProducts(props) {
+
+    const [state, setState] = useState([])
+
+    /*
 
     let json = [
 
@@ -14,6 +19,23 @@ export default function ListProducts(props) {
         { name: 'yogurt', count: 0, CO2level: 'low' }
 
     ]
+*/
+
+
+
+
+    useEffect(() => {
+
+        fetch('products.json')
+            .then((response) => response.json())
+            .then(data => setState(data));
+
+        console.log(state)
+    }, [])
+
+
+
+
 
 
 
@@ -23,8 +45,9 @@ export default function ListProducts(props) {
         <div>
             <div className='listProducts'>
 
+
                 {
-                    json.map(product => <button className='col-12' onClick={e => props.changeState(product)}>{product.name}</button>)
+                    state.map(product => <button className='col-12' onClick={e => props.changeState(product)}>{product.name}</button>)
                 }
 
             </div>
