@@ -7,8 +7,6 @@ import { useState } from 'react'
 export default function Resume(props) {
 
 
-  console.log(props.data)
-
   let json = []
 
   props.data.forEach(element => {

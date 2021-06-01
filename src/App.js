@@ -118,6 +118,52 @@ export default function App() {
 
 
 
+  
+  function savePurchase() {
+
+    localStorage.setItem('purchase',JSON.stringify(state))
+
+    console.log(localStorage)
+
+  }
+
+
+  function loadPurchase() {
+
+    setState(JSON.parse(localStorage.getItem('purchase')))
+
+  //  let data = JSON.parse(localStorage.getItem('purchase'))
+    
+  //  console.log(data)
+
+
+
+   // localStorage.setItem('purchase',state)
+
+   
+
+  }
+
+
+
+
+  function deleteAll() {
+
+    console.log('aqui estoy')
+
+    setState([])
+   // setState(state.concat())
+
+   
+
+  }
+
+
+
+
+
+
+
 
 
 
@@ -131,7 +177,7 @@ export default function App() {
           <ListProducts changeState={addProduct} />
         </div>
         <div className="shopingcart col-10">
-          <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} />
+          <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase}/>
         </div>
       </div>
 

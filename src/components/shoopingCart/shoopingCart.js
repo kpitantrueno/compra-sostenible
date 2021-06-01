@@ -6,10 +6,25 @@ import { useState } from 'react'
 export default function ShoopingCart(props) {
 
 
+
+    function deleteAll() {
+
+        
+    }
+
+
+
+
     return (
 
-
         <div className='container'>
+            <div className='col-12'>
+                
+                    <button onClick={props.savePurchase} className='btn btn-primary'>Guardar compra</button>
+                    <button onClick={props.loadPurchase} className='btn btn-primary'>Cargar ultima compra</button>
+                    <button onClick={props.deleteAll} className='btn btn-primary'>Eliminar compra</button>
+                
+            </div>
             <div className='row'>
                 {
 

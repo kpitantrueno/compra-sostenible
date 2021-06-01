@@ -2,12 +2,15 @@ import { useState } from 'react'
 
 
 export default function ItemShopingCart(props) {
+   
 
-   const [state, setState] = useState(0)
   
    let json = JSON.parse(props.productData)
 
-   
+
+   const [state, setState] = useState(json.count)
+  
+
 
    function sum(){
 
