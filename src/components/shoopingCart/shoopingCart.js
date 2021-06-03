@@ -7,13 +7,6 @@ export default function ShoopingCart(props) {
 
 
 
-    function deleteAll() {
-
-        
-    }
-
-
-
 
     return (
 

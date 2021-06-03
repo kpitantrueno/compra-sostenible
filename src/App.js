@@ -130,15 +130,18 @@ export default function App() {
 
   function loadPurchase() {
 
-    setState(JSON.parse(localStorage.getItem('purchase')))
 
-  //  let data = JSON.parse(localStorage.getItem('purchase'))
-    
-  //  console.log(data)
+    if(localStorage.getItem('purchase') != null){
 
+      setState(JSON.parse(localStorage.getItem('purchase')))
 
 
-   // localStorage.setItem('purchase',state)
+    }else{
+
+
+      alert('NO HAY COMPRA GUARDADA')
+
+    }
 
    
 
@@ -152,14 +155,15 @@ export default function App() {
     console.log('aqui estoy')
 
     setState([])
-   // setState(state.concat())
-
-   
+  
 
   }
 
 
 
+
+  
+  
 
 
 
@@ -174,7 +178,7 @@ export default function App() {
 
       <div className='row'>
         <div className="listproducts col-2">
-          <ListProducts changeState={addProduct} />
+          <ListProducts id='list' changeState={addProduct} />
         </div>
         <div className="shopingcart col-10">
           <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase}/>

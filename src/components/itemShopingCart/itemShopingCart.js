@@ -1,33 +1,26 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 export default function ItemShopingCart(props) {
    
-
-  
-   let json = JSON.parse(props.productData)
-
-
-   const [state, setState] = useState(json.count)
-  
+    
+    
+    let json = JSON.parse(props.productData)
+    
 
 
    function sum(){
 
-    setState(state+1)
-
-    props.addShopingCart({name:json.name,count:state+1})
+    props.addShopingCart({name:json.name,count:json.count+1})
 
    }
 
 
    function subt(){
 
-    if(state>0){
+    if(json.count>0){
 
-    setState(state-1)
-
-    props.addShopingCart({name:json.name,count:state-1})
+    props.addShopingCart({name:json.name,count:json.count-1})
 
     }
 
