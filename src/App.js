@@ -11,10 +11,6 @@ export default function App() {
 
   const [state, setState] = useState([])
 
-
-
-
-
   function addShopingCart(product) {
 
 
@@ -45,14 +41,6 @@ export default function App() {
 
   }
 
-
-
-
-
-
-
-
-
   function addProduct(json) {
 
     let exist = false
@@ -82,14 +70,6 @@ export default function App() {
     }
 
   }
-
-
-
-
-
-
-
-
 
   function deleteItem(nombre) {
 
@@ -152,25 +132,10 @@ export default function App() {
 
   function deleteAll() {
 
-    console.log('aqui estoy')
-
     setState([])
   
 
   }
-
-
-
-
-  
-  
-
-
-
-
-
-
-
 
 
   return (

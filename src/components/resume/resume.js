@@ -9,23 +9,37 @@ export default function Resume(props) {
 
   let json = []
 
+  let cTotal = 0;
+
+  let min = 0;
+
+  let max = 100;
+
   props.data.forEach(element => {
 
     json = json.concat([JSON.parse(element)])
 
   });
 
+  json.forEach(e => {
+
+    cTotal += e.count * e.cO2;
+
+  });
 
   return (
 
     <div className='container'>
 
 
-      <div className="progress">
-        <div className="progress-bar" role="progressbar"></div>
-        <div className="progress-bar bg-success" role="progressbar"></div>
-        <div className="progress-bar bg-info" role="progressbar" ></div>
-      </div>
+    <div className="progress">
+      <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow={cTotal} aria-valuemin={min} aria-valuemax={max} style={{width: cTotal ? cTotal + "100%" : "0%"}}></div>
+    </div>
+
+      <div className='col-3'>
+            <h2>Dióxido de carbono</h2>
+            <p>CO2 total: {cTotal.toFixed(2)} Kg</p>
+          </div>
 
 
 
@@ -34,8 +48,8 @@ export default function Resume(props) {
 
           return (
             <div>
-              <di className='row'></di>
-              <button className='col-3'>{data.name}{data.count}{data.CO2level}</button>
+              <div className='row'></div>
+              <div className='col-12'>Producto: {data.name}, Cantidad: {data.count} Kg, CO2: {data.cO2} Kg</div>
             </div>
 
           )
@@ -45,12 +59,8 @@ export default function Resume(props) {
       }
 
 
-
-
-
     </div>
 
   )
-
 
 }

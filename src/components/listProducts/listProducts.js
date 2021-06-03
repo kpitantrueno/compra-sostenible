@@ -10,18 +10,6 @@ export default function ListProducts(props) {
 
     const [state, setState] = useState([])
 
-    /*
-
-    let json = [
-
-        { name: 'leche', count: 0, CO2level: 'high' },
-        { name: 'azucar', count: 0, CO2level: 'medium' },
-        { name: 'cafe', count: 0, CO2level: 'low' },
-        { name: 'yogurt', count: 0, CO2level: 'low' }
-
-    ]
-*/
-
 
 
 
@@ -112,12 +100,14 @@ export default function ListProducts(props) {
 
             <div className='row'>
 
+            <h1 class="text-white text-center">Alimentos</h1>
+
 
 
             <div className='products col-12'>
 
                 {
-                    state.map(product => <button className='col-12' onClick={e => props.changeState(product)}>{product.name}</button>)
+                    state.map(product => <button className='col-12 mt-1' onClick={e => props.changeState(product)}>{product.name}</button>)
                 }
 
             </div>

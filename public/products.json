@@ -1,18 +1,68 @@
 [
     {
-        "name": "leche",
-        "count": 0
+        "name": "Carne de vacuno",
+        "count": 1,
+        "cO2": 26.5,
+        "img": "img/vacuno.png"
     },
     {
-        "name": "carne",
-        "count": 0
+        "name": "Carne de cordero",
+        "count": 1,
+        "cO2": 22.9,
+        "img": "img/cordero.png"
     },
     {
-        "name": "azucar",
-        "count": 0
+        "name": "Carne de cerdo",
+        "count": 1,
+        "cO2": 12.1,
+        "img": "img/cerdo.png"
     },
     {
-        "name": "cafe",
-        "count": 0
+        "name": "Pollo",
+        "count": 1,
+        "cO2": 6.9,
+        "img": "img/pollo.png"
+    },
+    {
+        "name": "Pescado",
+        "count": 1,
+        "cO2": 6.1,
+        "img": "img/pescado.png"
+    },
+    {
+        "name": "Huevos",
+        "count": 1,
+        "cO2": 4.8,
+        "img": "img/huevos.png"
+    },
+    {
+        "name": "Queso",
+        "count": 1,
+        "cO2": 9.8,
+        "img": "img/queso.png"
+    },
+    {
+        "name": "Leche",
+        "count": 1,
+        "cO2": 1.9,
+        "img": "img/leche.png"
+    },
+    {
+        "name": "Almendras",
+        "count": 1,
+        "cO2": 4,
+        "img": "img/almendras.png"
+    },
+    {
+        "name": "Verduras",
+        "count": 1,
+        "cO2": 2,
+        "img": "img/verduras.png"
+    },
+    {
+        "name": "Frutas",
+        "count": 1,
+        "cO2": 1.1,
+        "img": "img/frutas.png"
     }
 ]
