@@ -10,14 +10,13 @@ min-height: 70vh;
 
 .shopingcart{
 
-  background-color: cornflowerblue;
+  background-color: #AED6F1;
   min-height: 70vh;
 }
 
 .resume{
-
-background-color: rgb(190, 220, 20);
-min-height: 30vh;
+  background-color: #E59866;
+  min-height: 30vh;
 }
 
 .App-logo {
@@ -53,4 +52,8 @@ min-height: 30vh;
   to {
     transform: rotate(360deg);
   }
+}
+
+button:hover{
+  background-color:cornflowerblue;
 }

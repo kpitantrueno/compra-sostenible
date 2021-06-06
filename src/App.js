@@ -145,7 +145,7 @@ export default function App() {
         <div className="listproducts col-2">
           <ListProducts id='list' changeState={addProduct} />
         </div>
-        <div className="shopingcart col-10">
+        <div className="shopingcart col-10 container d-flex align-items-end">
           <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase}/>
         </div>
       </div>

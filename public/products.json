@@ -1,18 +1,18 @@
 [
     {
-        "name": "Carne de vacuno",
+        "name": "Carne vacuno",
         "count": 1,
         "cO2": 26.5,
         "img": "img/vacuno.png"
     },
     {
-        "name": "Carne de cordero",
+        "name": "Carne cordero",
         "count": 1,
         "cO2": 22.9,
         "img": "img/cordero.png"
     },
     {
-        "name": "Carne de cerdo",
+        "name": "Carne cerdo",
         "count": 1,
         "cO2": 12.1,
         "img": "img/cerdo.png"
