@@ -5,18 +5,19 @@
 .listproducts{
 
 background-color: #282c34;
-min-height: 70vh;
+height: 70vh;
+
 }
 
 .shopingcart{
 
   background-color: #AED6F1;
-  min-height: 70vh;
+  height: 70vh;
 }
 
 .resume{
   background-color: #E59866;
-  min-height: 30vh;
+  height: 30vh;
 }
 
 .App-logo {

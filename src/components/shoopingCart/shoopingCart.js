@@ -1,6 +1,7 @@
 import React from 'react'
 import ItemShoopingCart from '../itemShopingCart/itemShopingCart'
 import { useState } from 'react'
+import './shopingCart.css';
 
 
 export default function ShoopingCart(props) {
@@ -12,21 +13,24 @@ export default function ShoopingCart(props) {
 
         <div className='container'>
 
-            <div className='container row'>
-                {
+         
 
-                    props.cosas.map(product => <div  className='col-4'><ItemShoopingCart productData={product} addShopingCart={props.purchase} deleteItem={props.deleteItem} /></div> )
+            <div className='shopingcart row '>
+                {
+                    
+                    props.cosas.map(product => <div  className='col-12 mt-5'><ItemShoopingCart productData={product} addShopingCart={props.purchase} deleteItem={props.deleteItem} /></div> )
                 }
 
+                
+
+
             </div>
 
-            <div className='container col-12 d-flex flex-row justify-content-evenly mb-4'>
+                    <button onClick={props.savePurchase} className='btn btn-secondary col-4'>Guardar compra</button>
+                    <button onClick={props.loadPurchase} className='btn btn-secondary col-4'>Cargar ultima compra</button>
+                    <button onClick={props.deleteAll} className='btn btn-secondary col-4'>Eliminar compra</button>
                 
-                    <button onClick={props.savePurchase} className='btn btn-secondary'>Guardar compra</button>
-                    <button onClick={props.loadPurchase} className='btn btn-secondary'>Cargar ultima compra</button>
-                    <button onClick={props.deleteAll} className='btn btn-secondary'>Eliminar compra</button>
-                
-            </div>
+           
             
         </div>
 
