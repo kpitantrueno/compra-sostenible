@@ -9,34 +9,48 @@ export default function ShoopingCart(props) {
 
 
 
+
+
+
+
+
+
+
+
+
+
+    
+
+
     return (
 
-        <div className='container'>
+        <div className=''>
 
-         
+            <div className=' col-12'>
+                <button  onClick={props.savePurchase}>Guardar</button>
+                <button  onClick={props.loadPurchase}>Cargar</button>
+                <button  onClick={props.deleteAll}>Eliminar</button>
+            </div>
 
-            <div className='shopingcart row '>
+
+            <div className=' col-12'>
+
+
+
                 {
-                    
-                    props.cosas.map(product => <div  className='col-12 mt-5'><ItemShoopingCart productData={product} addShopingCart={props.purchase} deleteItem={props.deleteItem} /></div> )
+                    props.cosas.map(product => <ItemShoopingCart productData={product} addShopingCart={props.purchase} deleteItem={props.deleteItem} />)
                 }
 
-                
 
 
             </div>
 
-                    <button onClick={props.savePurchase} className='btn btn-secondary col-4'>Guardar compra</button>
-                    <button onClick={props.loadPurchase} className='btn btn-secondary col-4'>Cargar ultima compra</button>
-                    <button onClick={props.deleteAll} className='btn btn-secondary col-4'>Eliminar compra</button>
-                
-           
-            
+
         </div>
 
 
 
     )
 
-   
+
 }

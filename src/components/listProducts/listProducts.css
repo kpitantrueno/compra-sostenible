@@ -1,9 +1,15 @@
+
+
 .form{
 
 background-color: #31353b;
-height: 60vh;
+height: 100%;
 display: none;
 
+}
+
+form{
+    
 }
 
 
@@ -21,19 +27,23 @@ border-color: crimson;
 }
 
 
-.inputs{
 
 
-   
+
+
+
+.fields{
+
+
+height: 90%;
+
 }
 
 
 .crudPanel{
 
-
-margin-bottom: 0%;
-
-
+height: 10%;
 
 
 }
+

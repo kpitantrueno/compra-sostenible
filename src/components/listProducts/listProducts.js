@@ -37,25 +37,25 @@ export default function ListProducts(props) {
 
         let a = document.getElementsByClassName('listproducts')
         let b = document.getElementsByClassName('shopingcart')
-        let c = document.getElementsByClassName('products')
+        let c = document.getElementsByClassName('productsPanel')
         let d = document.getElementsByClassName('form')
 
 
-        a[0].style.transition = " 2s";
+        a[0].style.transition = " 0.5s";
         a[0].classList.remove('col-2')
-        a[0].classList.add('col-8')
+        a[0].classList.add('col-4')
 
-        b[0].style.transition = " 2s";
-        b[0].classList.remove('col-10')
-        b[0].classList.add('col-4')
+        b[0].style.transition = " 0.5s";
+        b[0].classList.remove('col-8')
+        b[0].classList.add('col-6')
 
         // c[0].style.transition = " 6s";
         c[0].classList.remove('col-12')
-        c[0].classList.add('col-2')
+        c[0].classList.add('col-4')
 
 
         // d[0].style.transition = " 6s";
-        d[0].classList.add('col-10')
+        d[0].classList.add('col-8')
         d[0].style.display = 'block'
 
     }
@@ -64,27 +64,26 @@ export default function ListProducts(props) {
 
         let a = document.getElementsByClassName('listproducts')
         let b = document.getElementsByClassName('shopingcart')
-        let c = document.getElementsByClassName('products')
+        let c = document.getElementsByClassName('productsPanel')
         let d = document.getElementsByClassName('form')
 
 
-        a[0].style.transition = " 2s";
-        a[0].classList.remove('col-8')
+        a[0].style.transition = "  0.5s";
+        a[0].classList.remove('col-4')
         a[0].classList.add('col-2')
 
-        b[0].style.transition = " 2s";
-        b[0].classList.remove('col-4')
-        b[0].classList.add('col-10')
+        b[0].style.transition = "  0.5s";
+        b[0].classList.remove('col-6')
+        b[0].classList.add('col-8')
 
-        //   c[0].style.transition = " 3s";
-        c[0].classList.remove('col-2')
+        // c[0].style.transition = " 6s";
+        c[0].classList.remove('col-4')
         c[0].classList.add('col-12')
 
 
-        // d[0].style.transition = " 3s";
-        d[0].classList.remove('col-10')
+        // d[0].style.transition = " 6s";
+        d[0].classList.add('col-8')
         d[0].style.display = 'none'
-
     }
 
 
@@ -98,7 +97,7 @@ export default function ListProducts(props) {
         let fco2 = parseFloat(document.getElementById('co2').value)
         let icon = document.getElementById('icon').value
         let option = e.target.value
-     
+
 
 
         if (option == 'eliminar') {
@@ -184,7 +183,7 @@ export default function ListProducts(props) {
 
                 if (e.name == fname) {
 
-                    state[i] = { name: fname, count: 1, cO2: fco2, img:icon }
+                    state[i] = { name: fname, count: 1, cO2: fco2, img: icon }
                     setState(state.concat())
 
                 }
@@ -231,47 +230,66 @@ export default function ListProducts(props) {
 
     return (
 
-        <div className='container'>
+        <div>
+
+
 
             <div className='row'>
 
-                <h1 class="text-white text-center">Alimentos</h1>
 
-                <div className='products col-12'>
+                <h4 class="text-white text-center col-12">PRODUCTS</h4>
 
-                    {
-                        state.map(product => <button className='col-10 mt-1 rounded btn btn-warning btn-sm p-0' onClick={e => props.changeState(product)}>{product.name}</button>)
 
-                    }
+
+                <div className='productsPanel col-12'>
+
+                    <div className='opencloseform'>
+                        <button onClick={newPro} className='btn btn-secondary  m-1'>+</button>
+                        <button onClick={closeForm} className='btn btn-secondary  m-1'>-</button>
+                    </div>
+
+                    <div className='products'>
+                        {
+                            state.map(product => <button className='col-12 rounded btn btn-primary p-0 mt-1' onClick={e => props.changeState(product)}>{product.name}</button>)
+                        }
+                    </div>
 
                 </div>
 
 
 
-                <div className='container form'>
+
+
+
+
+
+
+
+
+
+
+
+                <div className='form'>
+
 
                     <form method='#' action="javascript:void(0);">
 
 
-
-                        <div className='col-12'>
+                        <div className='fields col-12'>
 
                             <div className='inputs'>
                                 <label for="name" className='col-12 badge badge-secondary'>Nombre</label>
                                 <input id='name' type='text' className='col-10 mt-2' />
                                 <label for="co2" className='col-12 badge badge-secondary'>Co2</label>
-                                <input id='co2' type='text' className='col-10 mt-2' />
+                                <input id='co2' type='text' className='col-10 mt-2' /> 
                             </div>
 
 
                             <div className='col-12 '>
-
                                 {
                                     galeryState.map(image => <img src={image.img} className='icons' name={image.img} onClick={imgSelected} />)
 
                                 }
-
-
                                 <p id='icon'></p>
                             </div>
 
@@ -279,12 +297,13 @@ export default function ListProducts(props) {
                         </div>
 
 
-                        <div className='col-12'>
+
+
+                        <div className=' crudPanel col-12'>
                             <input type="submit" value='añadir' onClick={crud} />
                             <input type="submit" value='eliminar' onClick={crud} />
                             <input type="submit" value='modificar' onClick={crud} />
                         </div>
-
 
 
                     </form>
@@ -295,10 +314,6 @@ export default function ListProducts(props) {
 
 
 
-            <div className='crudPanel'>
-                <button onClick={newPro} className='btn btn-secondary mb-4 m-1'>+</button>
-                <button onClick={closeForm} className='btn btn-secondary mb-4 m-1'>-</button>
-            </div>
 
 
 

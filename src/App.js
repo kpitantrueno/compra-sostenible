@@ -98,10 +98,10 @@ export default function App() {
 
 
 
-  
+
   function savePurchase() {
 
-    localStorage.setItem('purchase',JSON.stringify(state))
+    localStorage.setItem('purchase', JSON.stringify(state))
 
     console.log(localStorage)
 
@@ -111,19 +111,19 @@ export default function App() {
   function loadPurchase() {
 
 
-    if(localStorage.getItem('purchase') != null){
+    if (localStorage.getItem('purchase') != null) {
 
       setState(JSON.parse(localStorage.getItem('purchase')))
 
 
-    }else{
+    } else {
 
 
       alert('NO HAY COMPRA GUARDADA')
 
     }
 
-   
+
 
   }
 
@@ -133,7 +133,7 @@ export default function App() {
   function deleteAll() {
 
     setState([])
-  
+
 
   }
 
@@ -141,21 +141,30 @@ export default function App() {
   return (
     <div className="container">
 
-      <div className='row'>
-        <div className="listproducts col-2">
-          <ListProducts id='list' changeState={addProduct} />
-        </div>
-        <div className="shopingcart col-10 container d-flex align-items-end">
-          <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase}/>
-        </div>
-      </div>
+      <div className='app'>
 
-      <div className='row'>
-      <div className="resume col-12">
-        <Resume data={state} />
-      </div>
-      </div>
+        <div className='row'>
 
+          <div className="listproducts col-2">
+            <ListProducts id='list' changeState={addProduct} />
+          </div>
+
+
+          <div className="shopingcart col-8 ">
+            <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase} />
+          </div>
+
+
+
+          <div className="resume col-2">
+            <Resume data={state} />
+          </div>
+
+          
+        </div>
+
+     
+      </div>
     </div>
   );
 }

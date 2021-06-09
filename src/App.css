@@ -1,23 +1,28 @@
-.App {
-  text-align: center;
-}
+
 
 .listproducts{
 
 background-color: #282c34;
-height: 70vh;
+max-height: 100vh;
+overflow: scroll;
+scrollbar-width: thin;
+
 
 }
 
 .shopingcart{
 
   background-color: #AED6F1;
-  height: 70vh;
+  max-height: 100vh;
+  overflow:scroll ;
+  scrollbar-width: thin;
 }
 
 .resume{
   background-color: #E59866;
-  height: 30vh;
+  height: 100vh;
+  overflow: scroll;
+  scrollbar-width: thin;
 }
 
 .App-logo {
