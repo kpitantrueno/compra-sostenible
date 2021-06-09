@@ -1,0 +1,19 @@
+[
+    {       
+        "img": "img/vacuno.png"
+    },
+    {
+       
+        "img": "img/pescado.png"
+    },
+    {
+        "img": "img/cordero.png"
+    },
+    {     
+        "img": "img/cerdo.png"
+    },
+    {
+      
+        "img": "img/pollo.png"
+    }
+]

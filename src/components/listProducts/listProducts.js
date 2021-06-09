@@ -7,6 +7,9 @@ import './listProducts.css';
 export default function ListProducts(props) {
 
     const [state, setState] = useState([])
+    const [galeryState, galerySetState] = useState([])
+
+
 
     useEffect(() => {
 
@@ -14,8 +17,20 @@ export default function ListProducts(props) {
             .then((response) => response.json())
             .then(data => setState(data));
 
+        fetch('images.json')
+            .then((response) => response.json())
+            .then(data => galerySetState(data));
+
+
+
 
     }, [])
+
+
+
+
+
+
 
 
     function newPro() {
@@ -76,25 +91,14 @@ export default function ListProducts(props) {
 
 
 
-
-
-
-
-
-
-
-
-
-
-    
-
     function crud(e) {
 
 
         let fname = document.getElementById('name').value
         let fco2 = parseFloat(document.getElementById('co2').value)
+        let icon = document.getElementById('icon').value
         let option = e.target.value
-        let validation = false
+     
 
 
         if (option == 'eliminar') {
@@ -150,17 +154,20 @@ export default function ListProducts(props) {
                 if (!exist) {
 
 
-                    if (!isNaN(fco2)) {
 
-                        setState(state.concat([{ name: fname, count: 1, cO2: fco2 }]))
+                    //valido los campos
+                    if (!isNaN(fco2) & icon != '' & icon != undefined) {
 
-                    }else{
+                        setState(state.concat([{ name: fname, count: 1, cO2: fco2, img: icon }]))
 
-                        alert('no es un numero')
+
+                    } else {
+
+                        alert('los datos no son correctos')
 
                     }
 
-                }else{
+                } else {
 
                     alert('el producto ya existe')
 
@@ -170,6 +177,20 @@ export default function ListProducts(props) {
 
 
         } else if (option == 'modificar') {
+
+
+            state.forEach((e, i) => {
+
+
+                if (e.name == fname) {
+
+                    state[i] = { name: fname, count: 1, cO2: fco2, img:icon }
+                    setState(state.concat())
+
+                }
+
+            })
+
 
 
         }
@@ -183,6 +204,20 @@ export default function ListProducts(props) {
 
 
 
+    function imgSelected(e) {
+
+        let icons = document.getElementsByClassName('icons')
+        let icon = document.getElementById('icon')
+
+        for (let item of icons) {
+            item.classList.remove('iconSelecter')
+        }
+
+        e.target.classList.add('iconSelecter')
+
+        icon.value = e.target.name
+
+    }
 
 
 
@@ -206,6 +241,7 @@ export default function ListProducts(props) {
 
                     {
                         state.map(product => <button className='col-10 mt-1 rounded btn btn-warning btn-sm p-0' onClick={e => props.changeState(product)}>{product.name}</button>)
+
                     }
 
                 </div>
@@ -216,15 +252,40 @@ export default function ListProducts(props) {
 
                     <form method='#' action="javascript:void(0);">
 
-                        <label for="name" className='col-12 badge badge-secondary'>Nombre</label>
-                        <input id='name' type='text' className='col-10 mt-2' />
-                        <label for="co2" className='col-12 badge badge-secondary'>Co2</label>
-                        <input id='co2' type='text' className='col-10 mt-2' />
 
 
-                        <input type="submit" value='añadir' onClick={crud} />
-                        <input type="submit" value='eliminar' onClick={crud} />
-                        <input type="submit" value='modificar' onClick={crud} />
+                        <div className='col-12'>
+
+                            <div className='inputs'>
+                                <label for="name" className='col-12 badge badge-secondary'>Nombre</label>
+                                <input id='name' type='text' className='col-10 mt-2' />
+                                <label for="co2" className='col-12 badge badge-secondary'>Co2</label>
+                                <input id='co2' type='text' className='col-10 mt-2' />
+                            </div>
+
+
+                            <div className='col-12 '>
+
+                                {
+                                    galeryState.map(image => <img src={image.img} className='icons' name={image.img} onClick={imgSelected} />)
+
+                                }
+
+
+                                <p id='icon'></p>
+                            </div>
+
+
+                        </div>
+
+
+                        <div className='col-12'>
+                            <input type="submit" value='añadir' onClick={crud} />
+                            <input type="submit" value='eliminar' onClick={crud} />
+                            <input type="submit" value='modificar' onClick={crud} />
+                        </div>
+
+
 
                     </form>
 

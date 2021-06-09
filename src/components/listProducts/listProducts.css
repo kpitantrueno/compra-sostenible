@@ -7,10 +7,24 @@ display: none;
 }
 
 
-.products{
+.icons{
 
-  
+ border-radius: 80%;
 
+}
+
+.iconSelecter{
+
+border: solid 2px;
+border-color: crimson;
+
+}
+
+
+.inputs{
+
+
+   
 }
 
 
