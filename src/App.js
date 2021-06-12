@@ -105,7 +105,7 @@ export default function App() {
 
     localStorage.setItem('purchase', JSON.stringify(state))
 
-    props.advice('Compra cargada','success')
+    advice('Compra guardada','success')
 
   }
 
@@ -115,23 +115,17 @@ export default function App() {
 
     if (localStorage.getItem('purchase') != null) {
 
+      
+
       setState(JSON.parse(localStorage.getItem('purchase')))
 
-      props.advice('Compra cargada','warn')
+      advice('Compra cargada','warn')
 
 
     } else {
 
 
-      toast.info('No hay compra guardada', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
+      advice('No hay compra','info')
 
     }
 
@@ -146,7 +140,7 @@ export default function App() {
 
     setState([])
 
-    props.advice('Compra eliminada','error')
+    advice('Compra eliminada','error')
 
 
   }
