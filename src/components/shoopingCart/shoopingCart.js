@@ -6,30 +6,14 @@ import './shopingCart.css';
 
 export default function ShoopingCart(props) {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
     return (
 
-        <div className=''>
+        <div className='container'>
 
-            <div className=' col-12'>
-                <button  onClick={props.savePurchase}>Guardar</button>
-                <button  onClick={props.loadPurchase}>Cargar</button>
-                <button  onClick={props.deleteAll}>Eliminar</button>
+            <div className='col-12 d-flex justify-content-around'>
+                <button className="m-1 btn green" onClick={props.savePurchase}>Guardar</button>
+                <button className="m-1 btn green" onClick={props.loadPurchase}>Cargar</button>
+                <button className="m-1 btn green" onClick={props.deleteAll}>Eliminar</button>
             </div>
 
 

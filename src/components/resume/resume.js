@@ -38,7 +38,7 @@ export default function Resume(props) {
       </div>
   
         <div className='col-3'>
-              <h2 className="h2">CO2 total: {cTotal.toFixed(2)} Kg</h2>
+              <p>CO2 total: {cTotal.toFixed(2)} Kg</p>
             </div>
   
   
@@ -49,7 +49,7 @@ export default function Resume(props) {
             return (
               <div>
                 <div className='row'></div>
-                <div className='col-12'>Producto: {data.name}, Cantidad: {data.count} Kg, CO2: {data.cO2} Kg</div>
+                <div className='col-12'>{data.name}, {data.count} Kg, {data.cO2} CO2/Kg</div>
               </div>
   
             )
@@ -73,8 +73,8 @@ export default function Resume(props) {
         <div className="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" aria-valuenow={cTotal} aria-valuemin={min} aria-valuemax={max} style={{width: cTotal ? cTotal + "100%" : "0%"}}></div>
       </div>
   
-      <div className='col-3'>
-        <h2 className="h2">CO2 total: {cTotal.toFixed(2)} Kg</h2>
+      <div className='col-12'>
+        <p>CO2 total: {cTotal.toFixed(2)} Kg</p>
       </div>
   
   
@@ -85,7 +85,7 @@ export default function Resume(props) {
             return (
               <div>
                 <div className='row'></div>
-                <div className='col-12'>Producto: {data.name}, Cantidad: {data.count} Kg, CO2: {data.cO2} Kg</div>
+                <div className='col-12'>{data.name}, {data.count} Kg, {data.cO2} CO2/Kg</div>
               </div>
   
             )
@@ -109,8 +109,8 @@ export default function Resume(props) {
         <div className="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" aria-valuenow={cTotal} aria-valuemin={min} aria-valuemax={max} style={{width: cTotal ? cTotal + "100%" : "0%"}}></div>
       </div>
   
-      <div className='col-3'>
-          <h2 className="h2">CO2 total: {cTotal.toFixed(2)} Kg</h2>
+      <div className='col-12'>
+          <p>CO2 total: {cTotal.toFixed(2)} Kg</p>
       </div>
   
   
@@ -121,7 +121,7 @@ export default function Resume(props) {
             return (
               <div>
                 <div className='row'></div>
-                <div className='col-12'>Producto: {data.name}, Cantidad: {data.count} Kg, CO2: {data.cO2} Kg</div>
+                <div className='col-12'>{data.name}, {data.count} Kg, {data.cO2} CO2/Kg</div>
               </div>
   
             )

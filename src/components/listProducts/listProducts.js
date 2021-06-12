@@ -41,13 +41,13 @@ export default function ListProducts(props) {
         let d = document.getElementsByClassName('form')
 
 
-        a[0].style.transition = " 0.5s";
+        a[0].style.transition = " 0.2s";
         a[0].classList.remove('col-2')
         a[0].classList.add('col-4')
 
-        b[0].style.transition = " 0.5s";
-        b[0].classList.remove('col-8')
-        b[0].classList.add('col-6')
+        b[0].style.transition = " 0.2s";
+        b[0].classList.remove('col-7')
+        b[0].classList.add('col-5')
 
         // c[0].style.transition = " 6s";
         c[0].classList.remove('col-12')
@@ -68,13 +68,13 @@ export default function ListProducts(props) {
         let d = document.getElementsByClassName('form')
 
 
-        a[0].style.transition = "  0.5s";
+        a[0].style.transition = "  0.2s";
         a[0].classList.remove('col-4')
         a[0].classList.add('col-2')
 
-        b[0].style.transition = "  0.5s";
-        b[0].classList.remove('col-6')
-        b[0].classList.add('col-8')
+        b[0].style.transition = "  0.2s";
+        b[0].classList.remove('col-5')
+        b[0].classList.add('col-7')
 
         // c[0].style.transition = " 6s";
         c[0].classList.remove('col-4')
@@ -87,9 +87,6 @@ export default function ListProducts(props) {
     }
 
 
-
-
-
     function crud(e) {
 
 
@@ -100,7 +97,7 @@ export default function ListProducts(props) {
 
 
 
-        if (option == 'eliminar') {
+        if (option == 'Eliminar') {
 
 
             state.forEach((e, i) => {
@@ -126,7 +123,7 @@ export default function ListProducts(props) {
 
 
 
-        } else if (option == 'añadir') {
+        } else if (option == 'Añadir') {
 
 
             let exist = false
@@ -155,7 +152,7 @@ export default function ListProducts(props) {
 
 
                     //valido los campos
-                    if (!isNaN(fco2) & icon != '' & icon != undefined) {
+                    if (fname!='' & !isNaN(fco2) & icon != '' & icon != undefined) {
 
                         setState(state.concat([{ name: fname, count: 1, cO2: fco2, img: icon }]))
 
@@ -175,7 +172,7 @@ export default function ListProducts(props) {
             }
 
 
-        } else if (option == 'modificar') {
+        } else if (option == 'Modificar') {
 
 
             state.forEach((e, i) => {
@@ -197,12 +194,6 @@ export default function ListProducts(props) {
     }
 
 
-
-
-
-
-
-
     function imgSelected(e) {
 
         let icons = document.getElementsByClassName('icons')
@@ -218,56 +209,40 @@ export default function ListProducts(props) {
 
     }
 
-
-
-
-
-
-
-
-
-
-
     return (
 
         <div>
 
 
-
             <div className='row'>
 
 
-                <h4 class="text-white text-center col-12">PRODUCTS</h4>
+                <h4 class="text text-center col-12">PRODUCTOS</h4>
 
 
 
                 <div className='productsPanel col-12'>
 
                     <div className='opencloseform'>
-                        <button onClick={newPro} className='btn btn-secondary  m-1'>+</button>
-                        <button onClick={closeForm} className='btn btn-secondary  m-1'>-</button>
+                        <div onClick={newPro} className='col-12 rounded p-1 m-1 mb-4 point'>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-right" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M4.146 3.646a.5.5 0 0 0 0 .708L7.793 8l-3.647 3.646a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708 0zM11.5 1a.5.5 0 0 1 .5.5v13a.5.5 0 0 1-1 0v-13a.5.5 0 0 1 .5-.5z"/>
+                            </svg>Nuevo</div>
+                        
                     </div>
+
 
                     <div className='products'>
                         {
-                            state.map(product => <button className='col-12 rounded btn btn-primary p-0 mt-1' onClick={e => props.changeState(product)}>{product.name}</button>)
+                            state.map(product => <div className='col-12 rounded p-1 m-1 point' onClick={e => props.changeState(product)}>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z"/>
+                                </svg>{product.name}</div>)
                         }
                     </div>
 
+
                 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                 <div className='form'>
 
@@ -277,17 +252,21 @@ export default function ListProducts(props) {
 
                         <div className='fields col-12'>
 
-                            <div className='inputs'>
-                                <label for="name" className='col-12 badge badge-secondary'>Nombre</label>
-                                <input id='name' type='text' className='col-10 mt-2' />
-                                <label for="co2" className='col-12 badge badge-secondary'>Co2</label>
-                                <input id='co2' type='text' className='col-10 mt-2' /> 
+                            <div className='inputs mt-4'>
+                            <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                                    <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text" id="inputGroup-sizing-sm">CO2</span>
+                                    <input type="text" id="co2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                                </div>
                             </div>
 
 
                             <div className='col-12 '>
                                 {
-                                    galeryState.map(image => <img src={image.img} className='icons' name={image.img} onClick={imgSelected} />)
+                                    galeryState.map(image => <img src={image.img} className='icons' name={image.img} data-bs-toggle="tooltip" data-bs-placement="top" title={image.tlt} onClick={imgSelected} />)
 
                                 }
                                 <p id='icon'></p>
@@ -296,14 +275,18 @@ export default function ListProducts(props) {
 
                         </div>
 
-
-
-
                         <div className=' crudPanel col-12'>
-                            <input type="submit" value='añadir' onClick={crud} />
-                            <input type="submit" value='eliminar' onClick={crud} />
-                            <input type="submit" value='modificar' onClick={crud} />
+
+                            <input className="m-1 btn-sm green" type="submit" value='Añadir' onClick={crud} />
+                            <input className="m-1 btn-sm green" type="submit" value='Eliminar' onClick={crud} />
+                            <input className="m-1 btn-sm green" type="submit" value='Modificar' onClick={crud} />
+                            
                         </div>
+
+                        <div onClick={closeForm} className='col-12 rounded p-1 m-1 mb-4 point'>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z"/>
+                        </svg>Cerrar</div>
 
 
                     </form>
@@ -311,11 +294,6 @@ export default function ListProducts(props) {
                 </div>
 
             </div>
-
-
-
-
-
 
         </div>
     )

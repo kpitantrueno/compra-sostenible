@@ -1,68 +1,68 @@
 [
     {
-        "name": "Carne vacuno",
+        "name": "Vacuno",
         "count": 1,
         "cO2": 26.5,
-        "img": "img/vacuno.png"
+        "img": "https://img.icons8.com/officel/50/000000/steak-medium.png"
     },
     {
-        "name": "Carne cordero",
+        "name": "Cordero",
         "count": 1,
         "cO2": 22.9,
-        "img": "img/cordero.png"
+        "img": "https://img.icons8.com/plasticine/50/000000/rack-of-lamb.png"
     },
     {
-        "name": "Carne cerdo",
+        "name": "Cerdo",
         "count": 1,
         "cO2": 12.1,
-        "img": "img/cerdo.png"
+        "img": "https://img.icons8.com/officel/50/000000/bacon.png"
     },
     {
         "name": "Pollo",
         "count": 1,
         "cO2": 6.9,
-        "img": "img/pollo.png"
+        "img": "https://img.icons8.com/cotton/50/000000/thanksgiving-turkey.png"
     },
     {
         "name": "Pescado",
         "count": 1,
         "cO2": 6.1,
-        "img": "img/pescado.png"
+        "img": "https://img.icons8.com/officel/50/000000/filleted-fish.png"
     },
     {
         "name": "Huevos",
         "count": 1,
         "cO2": 4.8,
-        "img": "img/huevos.png"
+        "img": "https://img.icons8.com/plasticine/100/000000/sunny-side-up-eggs.png"
     },
     {
         "name": "Queso",
         "count": 1,
         "cO2": 9.8,
-        "img": "img/queso.png"
+        "img": "https://img.icons8.com/plasticine/100/000000/cheese.png"
     },
     {
         "name": "Leche",
         "count": 1,
         "cO2": 1.9,
-        "img": "img/leche.png"
+        "img": "https://img.icons8.com/ultraviolet/40/000000/milk.png"
     },
     {
         "name": "Almendras",
         "count": 1,
         "cO2": 4,
-        "img": "img/almendras.png"
+        "img": "https://img.icons8.com/fluent/48/000000/almond.png"
     },
     {
         "name": "Verduras",
         "count": 1,
         "cO2": 2,
-        "img": "img/verduras.png"
+        "img": "https://img.icons8.com/cotton/64/000000/vegetables-box--v1.png"
     },
     {
         "name": "Frutas",
         "count": 1,
         "cO2": 1.1,
-        "img": "img/frutas.png"
+        "img": "https://img.icons8.com/color/64/000000/raspberry.png"
     }
 ]

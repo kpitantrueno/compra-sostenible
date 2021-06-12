@@ -6,7 +6,7 @@ img{
     height: 50px;
     border-radius: 50%;
     box-shadow: 0 0 15px #999;
-    object-fit: cover;
+    object-fit: fill;
 
 }
 
@@ -15,6 +15,25 @@ img{
 
 
 background-color: wheat;
+
+
+}
+
+.card:hover {
+
+    transform: translateY(-10px);
+    transition: 0.5s;
+
+}
+
+
+
+.card-title{
+
+
+max-height: 20px;
+overflow: hidden;
+
 
 
 }

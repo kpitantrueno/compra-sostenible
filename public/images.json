@@ -1,19 +1,48 @@
 [
+
     {       
-        "img": "img/vacuno.png"
+        "img": "https://img.icons8.com/officel/50/000000/steak-medium.png",
+        "tlt": "Vacuno" 
+    },
+    {  
+        "img": "https://img.icons8.com/officel/50/000000/filleted-fish.png",
+        "tlt": "Pescado" 
     },
     {
-       
-        "img": "img/pescado.png"
-    },
-    {
-        "img": "img/cordero.png"
+        "img": "https://img.icons8.com/plasticine/50/000000/rack-of-lamb.png",
+        "tlt": "Cordero" 
     },
     {     
-        "img": "img/cerdo.png"
+        "img": "https://img.icons8.com/officel/50/000000/bacon.png",
+        "tlt": "Cerdo" 
+    },
+    {  
+        "img": "https://img.icons8.com/cotton/50/000000/thanksgiving-turkey.png",
+        "tlt": "Pollo" 
     },
     {
-      
-        "img": "img/pollo.png"
+        "img": "https://img.icons8.com/plasticine/100/000000/cheese.png",
+        "tlt": "Queso"
+    },
+    {
+        "img": "https://img.icons8.com/ultraviolet/40/000000/milk.png",
+        "tlt": "Leche"
+    },
+    {
+        "img": "https://img.icons8.com/fluent/48/000000/almond.png",
+        "tlt": "Almendras"
+    },
+    {
+        "img": "https://img.icons8.com/cotton/64/000000/vegetables-box--v1.png",
+        "tlt": "Verduras"
+    },
+    {
+        "img": "https://img.icons8.com/color/64/000000/raspberry.png",
+        "tlt": "Frutas"
+    },
+    {
+        "img": "https://img.icons8.com/plasticine/100/000000/sunny-side-up-eggs.png",
+        "tlt": "Huevos"
     }
+
 ]

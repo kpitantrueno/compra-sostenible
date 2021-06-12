@@ -2,7 +2,7 @@
 
 .form{
 
-background-color: #31353b;
+background-color: #C4C4C4;
 height: 100%;
 display: none;
 
@@ -26,11 +26,9 @@ border-color: crimson;
 
 }
 
-
-
-
-
-
+.text{
+    color: #388A12;
+}
 
 .fields{
 
@@ -45,5 +43,25 @@ height: 90%;
 height: 10%;
 
 
+}
+
+.point{
+    text-align: start;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.point:hover{
+    background: #388A12;
+}
+
+.green{
+
+    background: #388A12;
+
+}
+
+.green:hover{
+    background: #44D240;
 }
 

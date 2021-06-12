@@ -2,7 +2,7 @@
 
 .listproducts{
 
-background-color: #282c34;
+background-color: #C4C4C4;
 max-height: 100vh;
 overflow: scroll;
 scrollbar-width: thin;
@@ -12,14 +12,14 @@ scrollbar-width: thin;
 
 .shopingcart{
 
-  background-color: #AED6F1;
+  background-color: white;
   max-height: 100vh;
   overflow:scroll ;
   scrollbar-width: thin;
 }
 
 .resume{
-  background-color: #E59866;
+  background-color: white;
   height: 100vh;
   overflow: scroll;
   scrollbar-width: thin;
@@ -58,8 +58,4 @@ scrollbar-width: thin;
   to {
     transform: rotate(360deg);
   }
-}
-
-button:hover{
-  background-color:cornflowerblue;
 }
