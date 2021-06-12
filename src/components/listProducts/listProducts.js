@@ -97,25 +97,25 @@ export default function ListProducts(props) {
         if (option == 'Eliminar') {
             
             
-            props.advice('Producto eliminado','error')
-
-
+            
+            
             state.forEach((e, i) => {
-
-
+                
+                
                 if (e.name == fname) {
-
-
+                    
+                    
                     let auxArr = state
-
+                    
                     auxArr.splice(i, 1)
-
+                    
                     setState([])
-
+                    
                     setState(auxArr)
-
+                    
                     setState(state.concat())
-
+                    
+                    props.advice('Producto eliminado','error')
                 }
 
 
@@ -178,18 +178,66 @@ export default function ListProducts(props) {
 
 
         } else if (option == 'Modificar') {
-            props.advice('Producto modificado','warn')
-
+            
+            let aux =  { name: '', count: 1, cO2: 0, img: '', adv: '' }
 
             state.forEach((e, i) => {
 
-
+                
                 if (e.name == fname) {
+                    
+                    aux.name=fname
+                    
+                    
 
-                    state[i] = { name: fname, count: 1, cO2: fco2, img: icon, adv: advice }
+                    if(isNaN(fco2)){
+                        
+                        aux.cO2=e.cO2
+                        props.advice('El cO2 no es correcto, se mantiene el valor anterior','warn')
+                        
+
+                    }else if(fco2!='' & !isNaN(fco2)){
+                        
+                        aux.cO2=fco2
+                        
+                    }
+
+                    
+                    
+                    if(icon != '' & icon != undefined){
+
+                        aux.img=icon
+
+                    }else{
+                        
+
+                        aux.img=e.img
+
+                    }
+                    
+                    
+                    
+                    if(advice != ''){
+
+                        aux.adv=advice
+                        
+                    }else{
+                        
+                        
+                        aux.adv=e.adv
+                        
+                    }
+                    
+                    
+                    state[i] = aux
                     setState(state.concat())
-
+                    props.advice('Producto modificado','warn')
+                    
+                    
+              
+              
                 }
+
 
             })
 
