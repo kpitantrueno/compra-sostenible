@@ -105,15 +105,7 @@ export default function App() {
 
     localStorage.setItem('purchase', JSON.stringify(state))
 
-    toast.success('Compra guardada', {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      });
+    props.advice('Compra cargada','success')
 
   }
 
@@ -125,15 +117,7 @@ export default function App() {
 
       setState(JSON.parse(localStorage.getItem('purchase')))
 
-      toast.warn('Compra cargada', {
-        position: "bottom-right",
-        autoClose: 3000,
-        hideProgressBar: false,
-        closeOnClick: true,
-        pauseOnHover: true,
-        draggable: true,
-        progress: undefined,
-        });
+      props.advice('Compra cargada','warn')
 
 
     } else {
@@ -162,15 +146,7 @@ export default function App() {
 
     setState([])
 
-    toast.error('Compra eliminada', {
-      position: "bottom-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      });
+    props.advice('Compra eliminada','error')
 
 
   }

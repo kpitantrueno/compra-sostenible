@@ -90,6 +90,7 @@ export default function ListProducts(props) {
         let fco2 = parseFloat(document.getElementById('co2').value)
         let icon = document.getElementById('icon').value
         let option = e.target.value
+        let advice = document.getElementById('advice').value;
 
 
 
@@ -153,7 +154,7 @@ export default function ListProducts(props) {
                     //valido los campos
                     if (fname!='' & !isNaN(fco2) & icon != '' & icon != undefined) {
 
-                        setState(state.concat([{ name: fname, count: 1, cO2: fco2, img: icon }]))
+                        setState(state.concat([{ name: fname, count: 1, cO2: fco2, img: icon, adv: advice }]))
 
                         props.advice('Producto añadido','success')
 
@@ -185,7 +186,7 @@ export default function ListProducts(props) {
 
                 if (e.name == fname) {
 
-                    state[i] = { name: fname, count: 1, cO2: fco2, img: icon }
+                    state[i] = { name: fname, count: 1, cO2: fco2, img: icon, adv: advice }
                     setState(state.concat())
 
                 }
@@ -265,6 +266,10 @@ export default function ListProducts(props) {
                                 <div className="input-group input-group-sm mb-3">
                                     <span className="input-group-text" id="inputGroup-sizing-sm">CO2</span>
                                     <input type="text" id="co2" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                                </div>
+                                <div class="input-group input-group-sm mb-3">
+                                    <span class="input-group-text">Info</span>
+                                    <textarea id="advice" class="form-control" aria-label="With textarea"></textarea>
                                 </div>
                             </div>
 
