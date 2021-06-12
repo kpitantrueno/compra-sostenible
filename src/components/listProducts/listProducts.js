@@ -2,6 +2,8 @@ import { div } from 'prelude-ls'
 import React from 'react'
 import { useState, useEffect } from 'react'
 import './listProducts.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function ListProducts(props) {
@@ -25,12 +27,6 @@ export default function ListProducts(props) {
 
 
     }, [])
-
-
-
-
-
-
 
 
     function newPro() {
@@ -98,6 +94,9 @@ export default function ListProducts(props) {
 
 
         if (option == 'Eliminar') {
+            
+            
+            props.advice('Producto eliminado','error')
 
 
             state.forEach((e, i) => {
@@ -156,23 +155,29 @@ export default function ListProducts(props) {
 
                         setState(state.concat([{ name: fname, count: 1, cO2: fco2, img: icon }]))
 
+                        props.advice('Producto añadido','success')
+
 
                     } else {
 
-                        alert('los datos no son correctos')
+                        props.advice('Los datos no son correctos','info')
 
                     }
 
+
                 } else {
 
-                    alert('el producto ya existe')
+                    props.advice('El producto ya existe','info')
 
                 }
+
+                
 
             }
 
 
         } else if (option == 'Modificar') {
+            props.advice('Producto modificado','warn')
 
 
             state.forEach((e, i) => {
@@ -217,7 +222,7 @@ export default function ListProducts(props) {
             <div className='row'>
 
 
-                <h4 class="text text-center col-12">PRODUCTOS</h4>
+                <h4 className="text text-center col-12">PRODUCTOS</h4>
 
 
 
@@ -253,13 +258,13 @@ export default function ListProducts(props) {
                         <div className='fields col-12'>
 
                             <div className='inputs mt-4'>
-                            <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
-                                    <input type="text" id="name" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                            <div className="input-group input-group-sm mb-3">
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">Nombre</span>
+                                    <input type="text" id="name" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
                                 </div>
-                                <div class="input-group input-group-sm mb-3">
-                                    <span class="input-group-text" id="inputGroup-sizing-sm">CO2</span>
-                                    <input type="text" id="co2" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
+                                <div className="input-group input-group-sm mb-3">
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">CO2</span>
+                                    <input type="text" id="co2" className="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm"/>
                                 </div>
                             </div>
 
@@ -277,9 +282,12 @@ export default function ListProducts(props) {
 
                         <div className=' crudPanel col-12'>
 
-                            <input className="m-1 btn-sm green" type="submit" value='Añadir' onClick={crud} />
-                            <input className="m-1 btn-sm green" type="submit" value='Eliminar' onClick={crud} />
-                            <input className="m-1 btn-sm green" type="submit" value='Modificar' onClick={crud} />
+                            <input className="m-1 btn-sm green shadow" type="submit" value='Añadir' onClick={crud}/>
+
+                            <input className="m-1 btn-sm green shadow" type="submit" value='Eliminar' onClick={crud} />
+
+                            <input className="m-1 btn-sm green shadow" type="submit" value='Modificar' onClick={crud} />
+                            
                             
                         </div>
 

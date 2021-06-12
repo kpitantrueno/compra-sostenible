@@ -5,6 +5,8 @@ import { useState } from 'react'
 import ListProducts from './components/listProducts/listProducts'
 import Shooping from './components/shoopingCart/shoopingCart'
 import Resume from './components/resume/resume'
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function App() {
@@ -103,7 +105,15 @@ export default function App() {
 
     localStorage.setItem('purchase', JSON.stringify(state))
 
-    console.log(localStorage)
+    toast.success('Compra guardada', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
 
   }
 
@@ -115,11 +125,29 @@ export default function App() {
 
       setState(JSON.parse(localStorage.getItem('purchase')))
 
+      toast.warn('Compra cargada', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+
 
     } else {
 
 
-      alert('NO HAY COMPRA GUARDADA')
+      toast.info('No hay compra guardada', {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
 
     }
 
@@ -134,24 +162,102 @@ export default function App() {
 
     setState([])
 
+    toast.error('Compra eliminada', {
+      position: "bottom-right",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+
 
   }
 
 
+
+
+
+  function advice(adv,type){
+
+    if(type == 'info'){
+
+    toast.info(adv, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        });
+      } else if (type == 'warn'){
+
+        toast.warn(adv, {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+
+
+      }else if (type == 'error'){
+
+        toast.error(adv, {
+          position: "bottom-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          });
+        }else if (type == 'success'){
+
+          toast.success(adv, {
+            position: "bottom-right",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            });
+          }
+
+
+
+
+
+}//FIN DEL METODO
+
+
+
+
+
+
+
+
+
   return (
-    <div className="container">
+    <div className="container" id="main">
 
       <div className='app'>
 
         <div className='row'>
 
           <div className="listproducts col-2">
-            <ListProducts id='list' changeState={addProduct} />
+            <ListProducts id='list' changeState={addProduct} advice={advice}/>
           </div>
 
 
           <div className="shopingcart col-7 ">
-            <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase} />
+            <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase} advice={advice}/>
+            <ToastContainer />
           </div>
 
 
