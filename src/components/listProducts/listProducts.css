@@ -1,25 +1,16 @@
-
-
 .form{
-
-background-color: #C4C4C4;
-height: 100%;
-display: none;
-
+    background-color: #C4C4C4;
+    height: 100%;
+    display: none;
 }
 
-
 .icons{
-
- border-radius: 80%;
-
+    border-radius: 80%;
 }
 
 .iconSelecter{
-
-border: solid 2px;
-border-color: crimson;
-
+    border: solid 2px;
+    border-color: crimson;
 }
 
 .text{
@@ -27,18 +18,11 @@ border-color: crimson;
 }
 
 .fields{
-
-
-height: 90%;
-
+    height: 90%;
 }
 
-
 .crudPanel{
-
-height: 10%;
-
-
+    height: 10%;
 }
 
 .point{
@@ -53,10 +37,8 @@ height: 10%;
 }
 
 .green{
-
     background: #388A12;
     color: white;
-
 }
 
 .green:hover{

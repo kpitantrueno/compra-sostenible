@@ -7,29 +7,31 @@ export default function ItemShopingCart(props) {
 
     let json = JSON.parse(props.productData)
 
+    // Suma uno a la cantidad del producto del carrito
 
     function sum() {
 
-        props.addShopingCart({ name: json.name, count: json.count + 1 })
+        props.updateCountProduct({ name: json.name, count: json.count + 1 })
 
     }
 
+    // Resta uno a la cantidad del producto del carrito
 
     function subt() {
 
         if (json.count > 0) {
 
-            props.addShopingCart({ name: json.name, count: json.count - 1 })
+            props.updateCountProduct({ name: json.name, count: json.count - 1 })
 
         }
 
     }
 
+    // Muestra la info del producto en un toast
+
     function inf() {
 
-
-        props.advice(json.adv, 'info')
-
+        props.notify(json.adv, 'info')
 
     }
 
@@ -50,13 +52,13 @@ export default function ItemShopingCart(props) {
 
                         <button className='m-2 btn border border-success rounded-circle' type='button' onClick={sum}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
-                            <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z"/>
+                                <path d="M8 0a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2H9v6a1 1 0 1 1-2 0V9H1a1 1 0 0 1 0-2h6V1a1 1 0 0 1 1-1z" />
                             </svg>
                         </button>
                         <strong className='me-1 h5'>{json.count}</strong>
                         <button className='m-2 btn border border-info rounded-circle' type='button' onClick={subt}>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
-                            <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z"/>
+                                <path d="M0 8a1 1 0 0 1 1-1h14a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1z" />
                             </svg>
                         </button>
 

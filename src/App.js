@@ -14,11 +14,9 @@ export default function App() {
   const [state, setState] = useState([])
 
 
+  // Actualiza la cantidad del producto
 
-
-  //actualiza la cantidad del producto
-  function addShopingCart(product) {
-
+  function updateCountProduct(product) {
 
     state.forEach((e, i) => {
 
@@ -47,11 +45,9 @@ export default function App() {
 
   }
 
-
+  // Añade un producto al state
 
   function addProduct(json) {
-
-   
 
     let exist = false
 
@@ -82,6 +78,8 @@ export default function App() {
 
   }
 
+  // Elimina un producto del state
+
   function deleteItem(nombre) {
 
     state.forEach((e, i) => {
@@ -89,7 +87,7 @@ export default function App() {
       let json = JSON.parse(e)
 
 
-      if (json.name == nombre) {
+      if ((json.name).toUpperCase() == (nombre).toUpperCase()) {
 
         let auxArr = state
 
@@ -108,66 +106,58 @@ export default function App() {
   }
 
 
-
+  // Guarda la última compra
 
   function savePurchase() {
 
     localStorage.setItem('purchase', JSON.stringify(state))
 
-    advice('Compra guardada','success')
+    notify('Compra guardada', 'success')
 
   }
 
+  // Carga la útlima compra
 
   function loadPurchase() {
 
 
     if (localStorage.getItem('purchase') != null) {
 
-      
-
       setState(JSON.parse(localStorage.getItem('purchase')))
 
-      advice('Compra cargada','warn')
+      notify('Compra cargada', 'warn')
 
 
     } else {
 
 
-      advice('No hay compra','info')
+      notify('No hay compra', 'info')
 
     }
 
 
-
   }
 
-
+  // Elimina la compra actual del state
 
 
   function deleteAll() {
 
     setState([])
 
-    advice('Compra eliminada','error')
+    notify('Compra eliminada', 'error')
 
 
   }
 
-
-
-
-
-
+  // SI EL PRODUCTO ACTUALIZADO ESTA EN EL CARRITO LO ACTUALIZA 
 
   function updateShopingCart(obj) {
-      
 
-    //SI EL PRODUCTO ACTUALIZADO ESTA EN EL CARRITO LO ACTUALIZA 
     state.forEach((e, i) => {
-            
+
       let json = JSON.parse(e)
-     
+
       if ((json.name).toUpperCase() == (obj.name).toUpperCase()) {
 
         let auxArr = state
@@ -191,9 +181,9 @@ export default function App() {
     let storage = JSON.parse(localStorage.getItem('purchase'))
 
     storage.forEach((e, i) => {
-            
+
       let json = JSON.parse(e)
-     
+
       if ((json.name).toUpperCase() == (obj.name).toUpperCase()) {
 
         let auxArr = storage
@@ -208,23 +198,15 @@ export default function App() {
 
     })
 
-
-
-
-
-
-
-
-
   }
 
+  // Función que muestra las notificaciones toasts
 
+  function notify(adv, type) {
 
-  function advice(adv,type){
+    if (type == 'info') {
 
-    if(type == 'info'){
-
-    toast.info(adv, {
+      toast.info(adv, {
         position: "bottom-right",
         autoClose: 3000,
         hideProgressBar: false,
@@ -232,85 +214,74 @@ export default function App() {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        });
-      } else if (type == 'warn'){
+      });
+    } else if (type == 'warn') {
 
-        toast.warn(adv, {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          });
-
-
-      }else if (type == 'error'){
-
-        toast.error(adv, {
-          position: "bottom-right",
-          autoClose: 3000,
-          hideProgressBar: false,
-          closeOnClick: true,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          });
-        }else if (type == 'success'){
-
-          toast.success(adv, {
-            position: "bottom-right",
-            autoClose: 3000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            });
-          }
+      toast.warn(adv, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
 
 
+    } else if (type == 'error') {
 
+      toast.error(adv, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    } else if (type == 'success') {
 
+      toast.success(adv, {
+        position: "bottom-right",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
 
-}//FIN DEL METODO
-
-
-
-
-
-
-
+  }//FIN DEL METODO
 
 
   return (
-    <div className="container" id="main">
+    <div className="container">
 
       <div className='app'>
 
         <div className='row'>
 
           <div className="listproducts col-2">
-            <ListProducts id='list' changeState={addProduct} deleteItem={deleteItem} advice={advice} updateShopingCart={updateShopingCart}/>
+            <ListProducts id='list' addProduct={addProduct} deleteItem={deleteItem} notify={notify} updateShopingCart={updateShopingCart} />
           </div>
 
 
-          <div className="shopingcart col-7 ">
-            <Shooping cosas={state} purchase={addShopingCart} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase} advice={advice}/>
+          <div className="shoppingCart col-7 ">
+            <Shooping products={state} updateCountProduct={updateCountProduct} deleteItem={deleteItem} deleteAll={deleteAll} loadPurchase={loadPurchase} savePurchase={savePurchase} notify={notify} />
             <ToastContainer />
           </div>
 
 
 
           <div className="resume col-3">
-            <Resume data={state} />
+            <Resume resume={state} />
           </div>
 
-          
+
         </div>
 
-     
+
       </div>
     </div>
   );

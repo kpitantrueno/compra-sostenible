@@ -11,8 +11,6 @@ export default function ListProducts(props) {
     const [state, setState] = useState([])
     const [galeryState, galerySetState] = useState([])
 
-
-
     useEffect(() => {
 
         fetch('products.json')
@@ -23,16 +21,15 @@ export default function ListProducts(props) {
             .then((response) => response.json())
             .then(data => galerySetState(data));
 
-
-
-
     }, [])
 
+
+    // Función para abrir y cerrar el form del crud
 
     function useForm(e) {
 
         let listproducts = document.getElementsByClassName('listproducts')
-        let shopingcart = document.getElementsByClassName('shopingcart')
+        let shoppingCart = document.getElementsByClassName('shoppingCart')
         let productsPanel = document.getElementsByClassName('productsPanel')
         let form = document.getElementsByClassName('form')
 
@@ -42,9 +39,9 @@ export default function ListProducts(props) {
             listproducts[0].classList.remove('col-2')
             listproducts[0].classList.add('col-4')
 
-            shopingcart[0].style.transition = " 0.2s";
-            shopingcart[0].classList.remove('col-7')
-            shopingcart[0].classList.add('col-5')
+            shoppingCart[0].style.transition = " 0.2s";
+            shoppingCart[0].classList.remove('col-7')
+            shoppingCart[0].classList.add('col-5')
 
             productsPanel[0].classList.remove('col-12')
             productsPanel[0].classList.add('col-4')
@@ -59,9 +56,9 @@ export default function ListProducts(props) {
             listproducts[0].classList.remove('col-4')
             listproducts[0].classList.add('col-2')
 
-            shopingcart[0].style.transition = " 0.2s";
-            shopingcart[0].classList.remove('col-5')
-            shopingcart[0].classList.add('col-7')
+            shoppingCart[0].style.transition = " 0.2s";
+            shoppingCart[0].classList.remove('col-5')
+            shoppingCart[0].classList.add('col-7')
 
             productsPanel[0].classList.remove('col-4')
             productsPanel[0].classList.add('col-12')
@@ -71,9 +68,9 @@ export default function ListProducts(props) {
 
         }
 
-
     }
 
+    // Recoge los datos del form
 
     function getDataForm() {
 
@@ -87,6 +84,7 @@ export default function ListProducts(props) {
 
     }
 
+    // Añade un nuevo elemento a la lista de productos
 
     function newProduct() {
 
@@ -109,23 +107,23 @@ export default function ListProducts(props) {
 
                 setState(state.concat([dataForm]))
 
-                props.advice('Producto añadido', 'success')
+                props.notify('Producto añadido', 'success')
 
             } else {
 
-                props.advice('Los datos no son correctos', 'info')
+                props.notify('Los datos no son correctos', 'info')
             }
 
         } else {
 
-            props.advice('El producto ya existe', 'info')
+            props.notify('El producto ya existe', 'info')
 
         }
 
     }
 
 
-
+    // Elimina un producto de la lista, del carrito y del storage
 
     function deleteProduct() {
 
@@ -133,9 +131,7 @@ export default function ListProducts(props) {
 
         state.forEach((e, i) => {
 
-
             if ((e.name).toUpperCase() == (dataForm.name).toUpperCase()) {
-
 
                 let auxArr = state
 
@@ -147,21 +143,39 @@ export default function ListProducts(props) {
 
                 setState(state.concat())
 
-                props.advice('Producto eliminado', 'error')
-            }
+                props.deleteItem(e.name)
 
+                let storage = JSON.parse(localStorage.getItem('purchase'))
+
+                storage.forEach((a, i) => {
+
+                    let json = JSON.parse(a)
+
+                    if ((json.name).toUpperCase() == (e.name).toUpperCase()) {
+
+                        let auxArr = storage
+
+                        auxArr.splice(i, 1)
+
+                        localStorage.setItem('purchase', JSON.stringify(auxArr))
+
+                    }
+
+                })
+
+                props.notify('Producto eliminado', 'error')
+
+            }
 
         })
 
     }
 
-
+    // Actualiza un producto de la lista
 
     function updateProduct() {
 
         let dataForm = getDataForm()
-
-        console.log(dataForm)
 
         state.forEach((e, i) => {
 
@@ -171,7 +185,7 @@ export default function ListProducts(props) {
 
                     dataForm.cO2 = e.cO2
 
-                    props.advice('El cO2 no es correcto, se mantiene el valor anterior', 'warn')
+                    props.notify('El cO2 no es correcto, se mantiene el valor anterior', 'warn')
                 }
 
                 if (dataForm.img == '' || dataForm.img == undefined) {
@@ -190,7 +204,7 @@ export default function ListProducts(props) {
 
                 setState(state.concat())
 
-                props.advice('Producto modificado', 'warn')
+                props.notify('Producto modificado', 'warn')
 
                 props.updateShopingCart(dataForm)
 
@@ -201,7 +215,7 @@ export default function ListProducts(props) {
     }
 
 
-
+    // Limpia los campos del form
 
     function cleanForm() {
 
@@ -219,7 +233,7 @@ export default function ListProducts(props) {
     }
 
 
-
+    // Selecciona un icono para el producto
 
     function imgSelected(e) {
 
@@ -235,6 +249,7 @@ export default function ListProducts(props) {
         icon.value = e.target.name
 
     }
+
 
     return (
 
@@ -253,7 +268,7 @@ export default function ListProducts(props) {
 
                     <div className='products'>
                         {
-                            state.map(product => <div className='col-12 rounded p-1 m-1 point' onClick={e => props.changeState(product)}>
+                            state.map(product => <div className='col-12 rounded p-1 m-1 point' onClick={e => props.addProduct(product)}>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-right" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
                                 </svg>{product.name}</div>)

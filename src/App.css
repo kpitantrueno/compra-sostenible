@@ -1,16 +1,11 @@
-
-
 .listproducts{
-
-background-color: #C4C4C4;
-max-height: 100vh;
-overflow: auto;
-scrollbar-width: thin;
-
+  background-color: #C4C4C4;
+  max-height: 100vh;
+  overflow: auto;
+  scrollbar-width: thin;
 }
 
-.shopingcart{
-
+.shoppingCart{
   background-color: white;
   max-height: 100vh;
   overflow:auto ;

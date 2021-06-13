@@ -18,27 +18,16 @@ export default function ShoopingCart(props) {
                 <button className="m-1 btn green shadow" onClick={props.deleteAll}>Eliminar</button>
             </div>
 
-
             <div className=' col-12'>
 
-
-
                 {
-                    props.cosas.map(product => <ItemShoopingCart productData={product} addShopingCart={props.purchase} deleteItem={props.deleteItem}  advice={props.advice} />)
+                    props.products.map(product => <ItemShoopingCart productData={product} updateCountProduct={props.updateCountProduct} deleteItem={props.deleteItem} notify={props.notify} />)
                 }
-
-
 
             </div>
 
-           
-
-
         </div>
 
-
-
     )
-
 
 }

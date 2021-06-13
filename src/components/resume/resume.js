@@ -2,8 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 
 
-
-
 export default function Resume(props) {
 
 
@@ -15,7 +13,9 @@ export default function Resume(props) {
 
   let max = 100;
 
-  props.data.forEach(element => {
+  // Recorre los datos del json
+
+  props.resume.forEach(element => {
 
     json = json.concat([JSON.parse(element)])
 
@@ -31,6 +31,11 @@ export default function Resume(props) {
   let style = ''
   let level = ''
   let alert = ''
+
+  /**
+   * Configura los estilos de la barra de progreso 
+   * y las alertas del resumen en base al CO2 total
+   */
 
   if (cTotal <= 25) {
 
