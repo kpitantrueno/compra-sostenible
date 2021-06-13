@@ -11,14 +11,14 @@
         "count": 1,
         "cO2": 22.9,
         "img": "https://img.icons8.com/plasticine/50/000000/rack-of-lamb.png",
-        "adv": ""
+        "adv": "Al igual que el vacuno esta carne emite mucha CO2, recomendable sustituirla."
     },
     {
         "name": "Cerdo",
         "count": 1,
         "cO2": 12.1,
         "img": "https://img.icons8.com/officel/50/000000/bacon.png",
-        "adv": ""
+        "adv": "Esta carne no emite tanto CO2 como el vacuno y el cordero, recomendable sustituirla también."
         
     },
     {
@@ -26,55 +26,55 @@
         "count": 1,
         "cO2": 6.9,
         "img": "https://img.icons8.com/cotton/50/000000/thanksgiving-turkey.png",
-        "adv": ""
+        "adv": "El pollo no emite tanta CO2 como la carne, Es una buena opción."
     },
     {
         "name": "Pescado",
         "count": 1,
         "cO2": 6.1,
         "img": "https://img.icons8.com/officel/50/000000/filleted-fish.png",
-        "adv": ""
+        "adv": "El pescado no emite tanta CO2 como la carne y menos que el pollo también, es una buena opción."
     },
     {
         "name": "Huevos",
         "count": 1,
         "cO2": 4.8,
         "img": "https://img.icons8.com/plasticine/100/000000/sunny-side-up-eggs.png",
-        "adv": ""
+        "adv": "Los huevos emiten aún menos que la carne y pescado, es una buena opción."
     },
     {
         "name": "Queso",
         "count": 1,
         "cO2": 9.8,
         "img": "https://img.icons8.com/plasticine/100/000000/cheese.png",
-        "adv": ""
+        "adv": "El queso amite bastante CO2, recomendable no abusar."
     },
     {
         "name": "Leche",
         "count": 1,
         "cO2": 1.9,
         "img": "https://img.icons8.com/ultraviolet/40/000000/milk.png",
-        "adv": ""
+        "adv": "La leche emite poca CO2, es una buena opción."
     },
     {
         "name": "Almendras",
         "count": 1,
         "cO2": 4,
         "img": "https://img.icons8.com/fluent/48/000000/almond.png",
-        "adv": ""
+        "adv": "La almendras no emite mucha CO2 en poca cantidad, pero si en mucha."
     },
     {
         "name": "Verduras",
         "count": 1,
         "cO2": 2,
         "img": "https://img.icons8.com/cotton/64/000000/vegetables-box--v1.png",
-        "adv": ""
+        "adv": "Una de las mejores opciones, comida saludable y apenas emite CO2."
     },
     {
         "name": "Frutas",
         "count": 1,
         "cO2": 1.1,
         "img": "https://img.icons8.com/color/64/000000/raspberry.png",
-        "adv": ""
+        "adv": "Una de las mejores opciones, comida saludable y apenas emite CO2."
     }
 ]
