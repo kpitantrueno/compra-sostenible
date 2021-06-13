@@ -63,7 +63,7 @@ export default function Resume(props) {
 
     <div className='container'>
 
-      <h4 className="text text-center col-12 mt-3">Resumen compra</h4>
+      <h3 className="text text-center col-12 mt-3">Resumen</h3>
 
       <div className="progress mt-3">
         <div className={style} role="progressbar" aria-valuenow={cTotal} aria-valuemin={min} aria-valuemax={max} style={{ width: cTotal + "%" }}></div>

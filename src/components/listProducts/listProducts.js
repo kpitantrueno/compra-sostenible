@@ -111,7 +111,7 @@ export default function ListProducts(props) {
 
             } else {
 
-                props.notify('Los datos no son correctos', 'info')
+                props.notify('Faltan datos o alguno no es correcto', 'info')
             }
 
         } else {
@@ -257,7 +257,7 @@ export default function ListProducts(props) {
 
             <div className='row'>
 
-                <h4 className="text text-center col-12 mt-3">PRODUCTOS</h4>
+                <h3 className="text text-center col-12 mt-3">Productos</h3>
 
                 <div className='productsPanel col-12'>
 
@@ -298,6 +298,8 @@ export default function ListProducts(props) {
                                     <textarea id="advice" class="form-control" aria-label="With textarea"></textarea>
                                 </div>
                             </div>
+
+                            <h4 className="text text-center col-12 mt-3 mb-3">Elige una imagen</h4>
 
                             <div className='col-12 '>
                                 {
