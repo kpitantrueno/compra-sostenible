@@ -168,7 +168,7 @@ export default function App() {
             
       let json = JSON.parse(e)
      
-      if (json.name == obj.name) {
+      if ((json.name).toUpperCase() == (obj.name).toUpperCase()) {
 
         let auxArr = state
 
@@ -194,7 +194,7 @@ export default function App() {
             
       let json = JSON.parse(e)
      
-      if (json.name == obj.name) {
+      if ((json.name).toUpperCase() == (obj.name).toUpperCase()) {
 
         let auxArr = storage
 

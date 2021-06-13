@@ -29,230 +29,196 @@ export default function ListProducts(props) {
     }, [])
 
 
-    function newPro() {
+    function useForm(e) {
 
-        let a = document.getElementsByClassName('listproducts')
-        let b = document.getElementsByClassName('shopingcart')
-        let c = document.getElementsByClassName('productsPanel')
-        let d = document.getElementsByClassName('form')
+        let listproducts = document.getElementsByClassName('listproducts')
+        let shopingcart = document.getElementsByClassName('shopingcart')
+        let productsPanel = document.getElementsByClassName('productsPanel')
+        let form = document.getElementsByClassName('form')
+
+        if (e.target.id == 'openForm') {
+
+            listproducts[0].style.transition = " 0.2s";
+            listproducts[0].classList.remove('col-2')
+            listproducts[0].classList.add('col-4')
+
+            shopingcart[0].style.transition = " 0.2s";
+            shopingcart[0].classList.remove('col-7')
+            shopingcart[0].classList.add('col-5')
+
+            productsPanel[0].classList.remove('col-12')
+            productsPanel[0].classList.add('col-4')
+
+            form[0].classList.add('col-8')
+            form[0].style.display = 'block'
 
 
-        a[0].style.transition = " 0.2s";
-        a[0].classList.remove('col-2')
-        a[0].classList.add('col-4')
+        } else if (e.target.id == 'closeForm') {
 
-        b[0].style.transition = " 0.2s";
-        b[0].classList.remove('col-7')
-        b[0].classList.add('col-5')
+            listproducts[0].style.transition = " 0.2s";
+            listproducts[0].classList.remove('col-4')
+            listproducts[0].classList.add('col-2')
 
-        // c[0].style.transition = " 6s";
-        c[0].classList.remove('col-12')
-        c[0].classList.add('col-4')
+            shopingcart[0].style.transition = " 0.2s";
+            shopingcart[0].classList.remove('col-5')
+            shopingcart[0].classList.add('col-7')
 
+            productsPanel[0].classList.remove('col-4')
+            productsPanel[0].classList.add('col-12')
 
-        // d[0].style.transition = " 6s";
-        d[0].classList.add('col-8')
-        d[0].style.display = 'block'
+            form[0].classList.add('col-8')
+            form[0].style.display = 'none'
+
+        }
+
 
     }
 
-    function closeForm() {
 
-        let a = document.getElementsByClassName('listproducts')
-        let b = document.getElementsByClassName('shopingcart')
-        let c = document.getElementsByClassName('productsPanel')
-        let d = document.getElementsByClassName('form')
+    function getDataForm() {
 
+        return {
+            name: document.getElementById('name').value,
+            count: 1,
+            cO2: parseFloat(document.getElementById('co2').value),
+            img: document.getElementById('icon').value,
+            adv: document.getElementById('advice').value
+        }
 
-        a[0].style.transition = "  0.2s";
-        a[0].classList.remove('col-4')
-        a[0].classList.add('col-2')
-
-        b[0].style.transition = "  0.2s";
-        b[0].classList.remove('col-5')
-        b[0].classList.add('col-7')
-
-        // c[0].style.transition = " 6s";
-        c[0].classList.remove('col-4')
-        c[0].classList.add('col-12')
-
-
-        // d[0].style.transition = " 6s";
-        d[0].classList.add('col-8')
-        d[0].style.display = 'none'
     }
 
 
-    function crud(e) {
+    function newProduct() {
 
+        let exist = false
+        let dataForm = getDataForm()
 
-        let fname = document.getElementById('name').value
-        let fco2 = parseFloat(document.getElementById('co2').value)
-        let icon = document.getElementById('icon').value
-        let option = e.target.value
-        let advice = document.getElementById('advice').value;
+        state.forEach(e => {
 
+            if ((e.name).toUpperCase() == (dataForm.name).toUpperCase()) {
 
-
-        if (option == 'Eliminar') {
-
-
-
-
-            state.forEach((e, i) => {
-
-
-                if (e.name == fname) {
-
-
-                    let auxArr = state
-
-                    auxArr.splice(i, 1)
-
-                    setState([])
-
-                    setState(auxArr)
-
-                    setState(state.concat())
-
-                    props.advice('Producto eliminado', 'error')
-                }
-
-
-            })
-
-
-
-        } else if (option == 'Añadir') {
-
-
-            let exist = false
-
-
-            if (state.length == 0) {
-
-                // setState(state.concat([JSON.stringify(json)]))
-
-            } else {
-
-
-                state.forEach(e => {
-
-                    if (e.name == fname) {
-
-
-                        exist = true
-
-                    }
-
-                })
-
-                if (!exist) {
-
-
-
-                    //valido los campos
-                    if (fname != '' & !isNaN(fco2) & icon != '' & icon != undefined) {
-
-                        setState(state.concat([{ name: fname, count: 1, cO2: fco2, img: icon, adv: advice }]))
-
-                        props.advice('Producto añadido', 'success')
-
-
-                    } else {
-
-                        props.advice('Los datos no son correctos', 'info')
-
-                    }
-
-
-                } else {
-
-                    props.advice('El producto ya existe', 'info')
-
-                }
-
-
+                exist = true
 
             }
 
+        })
 
-        } else if (option == 'Modificar') {
+        if (!exist) {
 
-            let aux = { name: '', count: 1, cO2: 0, img: '', adv: '' }
+            if (dataForm.name != '' & !isNaN(dataForm.cO2) & dataForm.img != '' & dataForm.img != undefined) {
 
-            state.forEach((e, i) => {
+                setState(state.concat([dataForm]))
 
+                props.advice('Producto añadido', 'success')
 
-                if (e.name == fname) {
+            } else {
 
-                    aux.name = fname
+                props.advice('Los datos no son correctos', 'info')
+            }
 
+        } else {
 
-
-                    if (isNaN(fco2)) {
-
-                        aux.cO2 = e.cO2
-                        props.advice('El cO2 no es correcto, se mantiene el valor anterior', 'warn')
-
-
-                    } else if (fco2 != '' & !isNaN(fco2)) {
-
-                        aux.cO2 = fco2
-
-                    }
-
-
-
-                    if (icon != '' & icon != undefined) {
-
-                        aux.img = icon
-
-                    } else {
-
-
-                        aux.img = e.img
-
-                    }
-
-
-
-                    if (advice != '') {
-
-                        aux.adv = advice
-
-                    } else {
-
-
-                        aux.adv = e.adv
-
-                    }
-
-
-                    state[i] = aux
-                    setState(state.concat())
-                    props.advice('Producto modificado', 'warn')
-
-
-                    props.updateShopingCart(aux)
-
-
-                }
-
-
-            })
-
-
-
-        } else if (option == 'Limpiar') {
-
-            document.getElementById("name").value = "";
-            document.getElementById("co2").value = "";
-            document.getElementById("advice").value = "";   
+            props.advice('El producto ya existe', 'info')
 
         }
 
     }
+
+
+
+
+    function deleteProduct() {
+
+        let dataForm = getDataForm()
+
+        state.forEach((e, i) => {
+
+
+            if ((e.name).toUpperCase() == (dataForm.name).toUpperCase()) {
+
+
+                let auxArr = state
+
+                auxArr.splice(i, 1)
+
+                setState([])
+
+                setState(auxArr)
+
+                setState(state.concat())
+
+                props.advice('Producto eliminado', 'error')
+            }
+
+
+        })
+
+    }
+
+
+
+    function updateProduct() {
+
+        let dataForm = getDataForm()
+
+        console.log(dataForm)
+
+        state.forEach((e, i) => {
+
+            if ((e.name).toUpperCase() == (dataForm.name).toUpperCase()) {
+
+                if (isNaN(dataForm.cO2)) {
+
+                    dataForm.cO2 = e.cO2
+
+                    props.advice('El cO2 no es correcto, se mantiene el valor anterior', 'warn')
+                }
+
+                if (dataForm.img == '' || dataForm.img == undefined) {
+
+                    dataForm.img = e.img
+
+                }
+
+                if (dataForm.adv == '') {
+
+                    dataForm.adv = e.adv
+
+                }
+
+                state[i] = dataForm
+
+                setState(state.concat())
+
+                props.advice('Producto modificado', 'warn')
+
+                props.updateShopingCart(dataForm)
+
+            }
+
+        })
+
+    }
+
+
+
+
+    function cleanForm() {
+
+        document.getElementById('name').value = ''
+        document.getElementById('co2').value = ''
+        document.getElementById('icon').value = ''
+        document.getElementById('advice').value = ''
+
+        let icons = document.getElementsByClassName('icons')
+
+        for (let item of icons) {
+            item.classList.remove('iconSelecter')
+        }
+
+    }
+
+
 
 
     function imgSelected(e) {
@@ -281,7 +247,7 @@ export default function ListProducts(props) {
                 <div className='productsPanel col-12'>
 
                     <div className='opencloseform'>
-                        <div onClick={newPro} className='col-12 p-1 m-1 mb-4 point h5 border border-2 border-success rounded-pill mt-3 text-center'>Nuevo</div>
+                        <div onClick={useForm} id="openForm" className='col-12 p-1 m-1 mb-4 point h5 border border-2 border-success rounded-pill mt-3 text-center'>Nuevo</div>
 
                     </div>
 
@@ -331,17 +297,17 @@ export default function ListProducts(props) {
 
                         <div className='crudPanel col-12 d-flex justify-content-center'>
 
-                            <input className="m-1 btn-sm green shadow" type="submit" value='Añadir' onClick={crud} />
+                            <input className="m-1 btn-sm green shadow" type="submit" value='Añadir' onClick={newProduct} />
 
-                            <input className="m-1 btn-sm green shadow" type="submit" value='Eliminar' onClick={crud} />
+                            <input className="m-1 btn-sm green shadow" type="submit" value='Eliminar' onClick={deleteProduct} />
 
-                            <input className="m-1 btn-sm green shadow" type="submit" value='Modificar' onClick={crud} />
+                            <input className="m-1 btn-sm green shadow" type="submit" value='Modificar' onClick={updateProduct} />
 
                         </div>
 
-                        <input className="m-1 btn-sm col-12 green shadow" type="submit" value='Limpiar' onClick={crud} />
+                        <input className="m-1 btn-sm col-12 green shadow" type="submit" value='Limpiar' onClick={cleanForm} />
 
-                        <div onClick={closeForm} className='col-12 rounded p-1 m-1 mb-4 point'>
+                        <div onClick={useForm} id="closeForm" className='col-12 rounded p-1 m-1 mb-4 point'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd" d="M11.854 3.646a.5.5 0 0 1 0 .708L8.207 8l3.647 3.646a.5.5 0 0 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 0 1 .708 0zM4.5 1a.5.5 0 0 0-.5.5v13a.5.5 0 0 0 1 0v-13a.5.5 0 0 0-.5-.5z" />
                             </svg>Cerrar</div>
