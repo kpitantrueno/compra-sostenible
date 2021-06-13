@@ -13,6 +13,10 @@ export default function App() {
 
   const [state, setState] = useState([])
 
+
+
+
+  //actualiza la cantidad del producto
   function addShopingCart(product) {
 
 
@@ -43,9 +47,14 @@ export default function App() {
 
   }
 
+
+
   function addProduct(json) {
 
+   
+
     let exist = false
+
 
     if (state.length == 0) {
 
@@ -149,6 +158,44 @@ export default function App() {
 
 
 
+
+
+  function updateShopingCart(obj) {
+      
+    state.forEach((e, i) => {
+            
+      let json = JSON.parse(e)
+     
+      if (json.name == obj.name) {
+
+        let auxArr = state
+
+        obj.count = json.count
+
+        auxArr.splice(i, 1, JSON.stringify(obj))
+
+        setState([])
+
+        setState(auxArr)
+
+        setState(state.concat())
+
+      }
+
+    })
+
+
+
+
+
+
+
+
+
+  }
+
+
+
   function advice(adv,type){
 
     if(type == 'info'){
@@ -221,7 +268,7 @@ export default function App() {
         <div className='row'>
 
           <div className="listproducts col-2">
-            <ListProducts id='list' changeState={addProduct} advice={advice}/>
+            <ListProducts id='list' changeState={addProduct} deleteItem={deleteItem} advice={advice} updateShopingCart={updateShopingCart}/>
           </div>
 
 

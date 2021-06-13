@@ -233,7 +233,8 @@ export default function ListProducts(props) {
                     setState(state.concat())
                     props.advice('Producto modificado','warn')
                     
-                    
+                   
+                    props.updateShopingCart(aux)
               
               
                 }
