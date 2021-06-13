@@ -1,9 +1,11 @@
-.cart{
+.green{
 
+    background: #388A12;
+    color: white;
 
 }
 
-.control{
-
-  
+.green:hover{
+    background: #44D240;
+    color: white;
 }

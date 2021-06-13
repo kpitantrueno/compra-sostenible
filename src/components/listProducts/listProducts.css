@@ -53,11 +53,13 @@ height: 10%;
 
 .point:hover{
     background: #388A12;
+    color: white;
 }
 
 .green{
 
     background: #388A12;
+    color: white;
 
 }
 

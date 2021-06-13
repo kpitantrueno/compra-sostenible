@@ -43,11 +43,11 @@ export default function ItemShopingCart(props) {
         
         <div className="card mt-4 shadow p-2 mb-5 bg-body rounded" >
             <div className="row no-gutters">
-                <div className="col-sm-4">
+                <div className="col-sm-3 d-flex align-items-center">
                     <img className="card-img img-fluid" src={json.img} alt="Suresh Dasari Card" />
                 </div>
-                <div className="col-sm-8">
-                    <div className="card-body m-3   text-center align-items-center">
+                <div className="col-sm-9">
+                    <div className="card-body m-3 text-center align-items-center">
                         
                         <h5 className="card-title">{json.name}</h5>
 

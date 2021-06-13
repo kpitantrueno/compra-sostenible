@@ -4,9 +4,8 @@
 
 background-color: #C4C4C4;
 max-height: 100vh;
-overflow: scroll;
+overflow: auto;
 scrollbar-width: thin;
-
 
 }
 
@@ -14,15 +13,16 @@ scrollbar-width: thin;
 
   background-color: white;
   max-height: 100vh;
-  overflow:scroll ;
+  overflow:auto ;
   scrollbar-width: thin;
 }
 
 .resume{
   background-color: white;
   height: 100vh;
-  overflow: scroll;
+  overflow: auto;
   scrollbar-width: thin;
+  border: solid 1px green;
 }
 
 .App-logo {

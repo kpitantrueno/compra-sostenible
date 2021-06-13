@@ -8,29 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function ShoopingCart(props) {
 
-
-
-
-
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
     return (
 
         <div className='container'>
 
-            <div className='col-12 d-flex justify-content-around border border-success mt-2 p-1'>
+            <div className='col-12 d-flex justify-content-around border border-success mt-3 p-1'>
                 <button className="m-1 btn green shadow" onClick={props.savePurchase}>Guardar</button>
                 <button className="m-1 btn green shadow" onClick={props.loadPurchase}>Cargar</button>
                 <button className="m-1 btn green shadow" onClick={props.deleteAll}>Eliminar</button>
