@@ -162,6 +162,8 @@ export default function App() {
 
   function updateShopingCart(obj) {
       
+
+    //SI EL PRODUCTO ACTUALIZADO ESTA EN EL CARRITO LO ACTUALIZA 
     state.forEach((e, i) => {
             
       let json = JSON.parse(e)
@@ -179,6 +181,28 @@ export default function App() {
         setState(auxArr)
 
         setState(state.concat())
+
+      }
+
+    })
+
+
+
+    let storage = JSON.parse(localStorage.getItem('purchase'))
+
+    storage.forEach((e, i) => {
+            
+      let json = JSON.parse(e)
+     
+      if (json.name == obj.name) {
+
+        let auxArr = storage
+
+        obj.count = json.count
+
+        auxArr.splice(i, 1, JSON.stringify(obj))
+
+        localStorage.setItem('purchase', JSON.stringify(auxArr))
 
       }
 
