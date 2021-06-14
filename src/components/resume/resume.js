@@ -87,9 +87,9 @@ export default function Resume(props) {
             return (
               <div className="container">
                 <ul class="list-inline border-bottom border-success">
-                  <li class="list-inline-item">{data.count} Kg -</li>
-                  <li class="list-inline-item">{data.name}</li>
-                  <li class="list-inline-item">CO2: {data.cO2} Kg</li>
+                  <li class="list-inline-item">{data.count} Kg - {data.name} =</li>
+                  <li class="list-inline-item">{(data.count * data.cO2).toFixed(2)} Kg de CO2</li>
+                  <li class="list-inline-item">CO2-u : {data.cO2} Kg</li>
                 </ul>
 
               </div>
