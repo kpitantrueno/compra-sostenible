@@ -204,7 +204,7 @@ export default function ListProducts(props) {
 
                 setState(state.concat())
 
-                props.notify('Producto modificado', 'warn')
+                props.notify('Producto actualizado', 'warn')
 
                 props.updateShopingCart(dataForm)
 
@@ -299,7 +299,16 @@ export default function ListProducts(props) {
                                 </div>
                             </div>
 
-                            <h4 className="text text-center col-12 mt-3 mb-3">Elige una imagen</h4>
+                            <div className="col-12">
+
+                            <h4 className="text text-center col-12 mt-3 mb-3">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-right" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M1 8a.5.5 0 0 1 .5-.5h11.793l-3.147-3.146a.5.5 0 0 1 .708-.708l4 4a.5.5 0 0 1 0 .708l-4 4a.5.5 0 0 1-.708-.708L13.293 8.5H1.5A.5.5 0 0 1 1 8z"/>
+                                </svg>
+                                <span className="ms-3">Elige una imagen</span>
+                            </h4>
+
+                            </div>
 
                             <div className='col-12 '>
                                 {
@@ -314,15 +323,15 @@ export default function ListProducts(props) {
 
                         <div className='crudPanel col-12 d-flex justify-content-center'>
 
-                            <input className="m-1 btn-sm green shadow" type="submit" value='Añadir' onClick={newProduct} />
+                            <button className="m-1 btn-sm green shadow" onClick={newProduct}>Añadir</button>
 
-                            <input className="m-1 btn-sm green shadow" type="submit" value='Eliminar' onClick={deleteProduct} />
+                            <button className="m-1 btn-sm green shadow" onClick={deleteProduct}>Eliminar</button>
 
-                            <input className="m-1 btn-sm green shadow" type="submit" value='Modificar' onClick={updateProduct} />
+                            <button className="m-1 btn-sm green shadow" onClick={updateProduct}>Actualizar</button>
 
                         </div>
 
-                        <input className="m-1 btn-sm col-12 green shadow" type="submit" value='Limpiar' onClick={cleanForm} />
+                        <button className="m-1 btn-sm col-12 green shadow" onClick={cleanForm}>Limpiar</button>
 
                         <div onClick={useForm} id="closeForm" className='col-12 rounded p-1 m-1 mb-4 point'>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-bar-left" viewBox="0 0 16 16">
